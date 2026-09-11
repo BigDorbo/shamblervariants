@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase">
+    <defName>SV_ThrasherDrive</defName>
+    <label>thrasher</label>
+    <description>A shambler that is chemically frenzied, large, and capable of leaps at incredible speed.</description>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <casts>
+          <li>
+            <ability>SV_ThrasherFrenzy</ability>
+            <selfCast>true</selfCast>
+          </li>
+          <li>
+            <ability>SV_ThrasherLeap</ability>
+            <searchRadius>24.9</searchRadius>
+            <targetHostiles>true</targetHostiles>
+            <skipToTarget>true</skipToTarget>
+            <arriveRadius>1</arriveRadius>
+          </li>
+        </casts>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="SV_EffectBase">
+    <defName>SV_ThrasherFrenzied</defName>
+    <label>chemical frenzy</label>
+    <description>A frenzy usually caused by genetic dependency.</description>
+<renderNodeProperties>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <debugLabel>pustule upper</debugLabel>
+        <texPath>Things/Mote/BandNode/RedGlow</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>Transparent</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.26</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>21</layer>
+            <offset>(0.10, 0, 0.12)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <debugLabel>pustule mid</debugLabel>
+        <texPath>Things/Mote/BandNode/RedGlow</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>Transparent</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.20</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>21</layer>
+            <offset>(-0.14, 0, -0.02)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <debugLabel>pustule lower</debugLabel>
+        <texPath>Things/Mote/BandNode/RedGlow</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>Transparent</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.16</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>21</layer>
+            <offset>(0.04, 0, -0.16)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li>
+        <debugLabel>spikes</debugLabel>
+        <texPath>Things/Pawn/Shambler/SV_Thrasher/ThrasherSpikes</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData>
+            <layer>-1</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>66</layer>
+          </dataNorth>
+          <dataEast>
+            <layer>66</layer>
+          </dataEast>
+          <dataWest>
+            <layer>66</layer>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <defaultLabelColor>(1.0, 0.55, 0.2)</defaultLabelColor>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>0.5</IncomingDamageFactor>
+          <MeleeDamageFactor>2.2</MeleeDamageFactor>
+          <MoveSpeed>1.75</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVBodyType">
+        <bodyType>Hulk</bodyType>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

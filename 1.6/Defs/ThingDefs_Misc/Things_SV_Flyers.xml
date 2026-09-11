@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="PawnFlyerBase">
+    <defName>SV_ThrasherLeaper</defName>
+    <thingClass>ShamblerVariants.PawnFlyer_SVLeap</thingClass>
+    <pawnFlyer>
+      <flightSpeed>16</flightSpeed>
+      <heightFactor>1.6</heightFactor>
+    </pawnFlyer>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Shambler Variants</name>
+  <author>Big Dorbo</author>
+  <packageId>dorbo.shamblervariants</packageId>
+  <description>From Ideas by Mayfly I present a different take on Shamblers. Think a bit of Left 4 Dead and Killing Floor mixed together but with some good presentation. This mod is compatible with and without Biotech although Biotech Users will have a better time.</description>
+  
+  <supportedVersions>
+    <li>1.6</li>
+  
+  </supportedVersions>
+  
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>Ludeon.RimWorld.Anomaly</packageId>
+      <displayName>Anomaly</displayName>
+    </li>
+  </modDependencies>
+  
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>Ludeon.RimWorld.Anomaly</li>
+    <li>Ludeon.RimWorld.Odyssey</li>
+    <li>vanillaracesexpanded.lycanthrope</li>
+    <li>vanillaracesexpanded.phytokin</li>
+    <li>ElSov.Beliar</li>
+    <li>det.avaloi</li>
+    <li>det.boglegs</li>
+    <li>det.brawnum</li>
+    <li>det.keshig</li>
+    <li>det.stoneborn</li>
+    <li>Sov.Goliann</li>
+    <li>ElSov.Highborn</li>
+    <li>BiomesTeam.GeneticsMushkin</li>
+    <li>V.Rooboid.Faun</li>
+    <li>tug.Minotaur</li>
+    <li>tug.Satyr</li>
+    <li>vanillaracesexpanded.fungoid</li>
+    <li>vanillaracesexpanded.insector</li>
+    <li>vanillaracesexpanded.saurid</li>
+    <li>Sov.Tenmo</li>
+    <li>det.venators</li>
+    <li>det.halffoot</li>
+    <li>det.buzzers</li>
+    <li>ReSplice.XOTR.Charmweavers</li>
+    <li>GS_Molong</li>
+  
+  </loadAfter>
+  
+</ModMetaData>

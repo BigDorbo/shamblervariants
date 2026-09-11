@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef Name="SV_PallbearerRiteBase" ParentName="SV_CastBase" Abstract="True">
+    <cooldownTicksRange>1800</cooldownTicksRange>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <hostile>false</hostile>
+    <verbProperties>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>2</warmupTime>
+      <violent>false</violent>
+      <range>14.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <targetParams>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+        <canTargetItems>true</canTargetItems>
+        <canTargetCorpses>true</canTargetCorpses>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
+  <AbilityDef ParentName="SV_PallbearerRiteBase">
+    <defName>SV_PallbearerExhume</defName>
+    <jobDef>SV_CastRite</jobDef>
+    <label>exhume</label>
+    <description>Force a corpse to the surface from its resting place.</description>
+    <warmupSound>FleshbeastDigging</warmupSound>
+    <verbProperties>
+      <label>exhume</label>
+      <soundCast>FleshbeastDigging_End</soundCast>
+      <mouseTargetingText>Choose a grave to open</mouseTargetingText>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityRaiseCorpse">
+        <gravesOnly>true</gravesOnly>
+        <exhumeOnly>true</exhumeOnly>
+        <digFleck>DustPuff</digFleck>
+        <digFleckScale>2.2</digFleckScale>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="SV_PallbearerRiteBase">
+    <defName>SV_PallbearerCall</defName>
+    <jobDef>SV_CastRite</jobDef>
+    <label>deadlife call</label>
+    <description>Chant and force nearby corpses into your service.</description>
+    <warmupStartSound>SV_Sound_PallbearerRite</warmupStartSound>
+    <verbProperties>
+      <label>deadlife call</label>
+      <soundCast>DeadlifeRelease</soundCast>
+      <mouseTargetingText>Choose a corpse to raise</mouseTargetingText>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityRaiseCorpse">
+        <corpsesOnly>true</corpsesOnly>
+        <gasType>DeadlifeDust</gasType>
+        <cellsToFill>8</cellsToFill>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

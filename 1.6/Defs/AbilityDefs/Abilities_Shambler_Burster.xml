@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_BursterDetonate</defName>
+    <label>detonate</label>
+    <description>Explode and spray burning fuel around yourself.</description>
+    <cooldownTicksRange>2700</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <verbProperties>
+      <label>detonate</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>0</warmupTime>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityPrime">
+        <primedHediff>SV_BursterPrimed</primedHediff>
+        <requiredHostileRadius>1.5</requiredHostileRadius>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef ParentName="ShamblerBase" Name="SV_VariantBase" Abstract="True">
+    <gearHealthRange>0.2~0.4</gearHealthRange>
+    <itemQuality>Poor</itemQuality>
+    <apparelMoney>0~100</apparelMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>Neolithic</li>
+    </apparelTags>
+    <meleeAttackInfectionPathways>
+      <li>EntityAttacked</li>
+    </meleeAttackInfectionPathways>
+  </PawnKindDef>
+
+</Defs>

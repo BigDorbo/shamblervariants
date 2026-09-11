@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_ThrasherFrenzy</defName>
+    <jobDef>SV_CastRoar</jobDef>
+    <label>frenzy</label>
+    <description>Grow spikes from the back and become larger.</description>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <warmupStartSound>SV_Sound_ThrasherFrenzy</warmupStartSound>
+    <verbProperties>
+      <label>frenzy</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>2</warmupTime>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityPrime">
+        <primedHediff>SV_ThrasherFrenzied</primedHediff>
+        <requiredHostileRadius>29.9</requiredHostileRadius>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_ThrasherLeap</defName>
+    <label>leap</label>
+    <description>Leap at an enemy and deal a quick blow when within range.</description>
+    <cooldownTicksRange>900</cooldownTicksRange>
+    <targetRequired>false</targetRequired>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <verbProperties>
+      <label>leap</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <warmupEffecter>SV_Leap_Warmup</warmupEffecter>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityLeap">
+        <searchRadius>24.9</searchRadius>
+        <minRadius>2.9</minRadius>
+        <flyerDef>SV_ThrasherLeaper</flyerDef>
+        <requiredHediff>SV_ThrasherFrenzied</requiredHediff>
+        <leapSound>SV_Sound_ThrasherLeap</leapSound>
+        <landSound>SV_Sound_ThrasherLand</landSound>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

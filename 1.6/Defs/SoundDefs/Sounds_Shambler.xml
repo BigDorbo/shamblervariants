@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>SV_Sound_TanglerSnare</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/TanglerSnare/Snare_A</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/TanglerSnare/Snare_B</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/TanglerSnare/Snare_C</clipPath>
+          </li>
+        </grains>
+        <volumeRange>28~32</volumeRange>
+        <pitchRange>0.94~1.06</pitchRange>
+        <distRange>0~28</distRange>
+        <muteWhenPaused>true</muteWhenPaused>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_BursterDetonateWarmup</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/BursterRupture/Rupture_Warmup_A</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/BursterRupture/Rupture_Warmup_B</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/BursterRupture/Rupture_Warmup_C</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/BursterRupture/Rupture_Warmup_D</clipPath>
+          </li>
+        </grains>
+        <volumeRange>32~36</volumeRange>
+        <pitchRange>0.97~1.03</pitchRange>
+        <distRange>0~32</distRange>
+        <muteWhenPaused>true</muteWhenPaused>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_LatcherChompWarmup</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/LatcherFeed/Feed_Warmup_A</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/LatcherFeed/Feed_Warmup_B</clipPath>
+          </li>
+        </grains>
+        <volumeRange>30~34</volumeRange>
+        <pitchRange>0.95~1.05</pitchRange>
+        <distRange>0~28</distRange>
+        <muteWhenPaused>true</muteWhenPaused>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_PallbearerRite</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/PallbearerRite/Rite_A</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/PallbearerRite/Rite_B</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/PallbearerRite/Rite_C</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/PallbearerRite/Rite_D</clipPath>
+          </li>
+        </grains>
+        <volumeRange>30~34</volumeRange>
+        <pitchRange>0.96~1.04</pitchRange>
+        <distRange>0~30</distRange>
+        <muteWhenPaused>true</muteWhenPaused>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_BurrowerDig</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/BurrowerDig/Dig_A</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/BurrowerDig/Dig_B</clipPath>
+          </li>
+        </grains>
+        <volumeRange>30~34</volumeRange>
+        <pitchRange>0.96~1.04</pitchRange>
+        <distRange>0~30</distRange>
+        <muteWhenPaused>true</muteWhenPaused>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  
+
+  <SoundDef>
+    <defName>SV_Sound_CantorScream</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/CantorScream/Scream_A</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/CantorScream/Scream_B</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/CantorScream/Scream_C</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/CantorScream/Scream_D</clipPath>
+          </li>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Pawn/Shambler/CantorScream/Scream_E</clipPath>
+          </li>
+        </grains>
+        <volumeRange>34~38</volumeRange>
+        <pitchRange>0.94~1.06</pitchRange>
+        <distRange>0~38</distRange>
+        <muteWhenPaused>true</muteWhenPaused>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_GloamWalk</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/SpecterBlink/Blink_A</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/SpecterBlink/Blink_B</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/SpecterBlink/Blink_C</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/SpecterBlink/Blink_D</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/SpecterBlink/Blink_E</clipPath></li>
+        </grains>
+        <volumeRange>55~65</volumeRange>
+        <distRange>0~45</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_ThrasherFrenzy</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherFrenzy/Frenzy_A</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherFrenzy/Frenzy_B</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherFrenzy/Frenzy_C</clipPath></li>
+        </grains>
+        <volumeRange>32~36</volumeRange>
+        <distRange>0~32</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_ThrasherLeap</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Leap_A</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Leap_B</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Leap_C</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Leap_D</clipPath></li>
+        </grains>
+        <volumeRange>32~36</volumeRange>
+        <distRange>0~32</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_ThrasherLand</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Land_A</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Land_B</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/ThrasherLeap/Land_C</clipPath></li>
+        </grains>
+        <volumeRange>32~36</volumeRange>
+        <distRange>0~32</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SV_Sound_TanglerBreath</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/TanglerVent/Vent_A</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/TanglerVent/Vent_B</clipPath></li>
+          <li Class="AudioGrain_Clip"><clipPath>Pawn/Shambler/TanglerVent/Vent_C</clipPath></li>
+        </grains>
+        <volumeRange>28~32</volumeRange>
+        <distRange>0~28</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

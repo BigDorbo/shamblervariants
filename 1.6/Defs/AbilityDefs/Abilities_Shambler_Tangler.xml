@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_TanglerSnare</defName>
+    <label>flesh snare</label>
+    <description>Fling a flesh runner at a distant target and root it in place.</description>
+    <cooldownTicksRange>600</cooldownTicksRange>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <verbProperties>
+      <label>flesh snare</label>
+      <warmupTime>1.2</warmupTime>
+      <range>24.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <mouseTargetingText>Choose a target to root</mouseTargetingText>
+      <targetParams>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetHumans>true</canTargetHumans>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityTether">
+        <tetherDef>SV_TanglerKnot</tetherDef>
+        <pinHediff>SV_TanglerSnared</pinHediff>
+        <maxLength>8</maxLength>
+        <knotPlacementRadius>1.9</knotPlacementRadius>
+        <targetFleck>DeathRefusalPulse</targetFleck>
+        <castSound>SV_Sound_TanglerSnare</castSound>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_TanglerBreath</defName>
+    <label>toxic breath</label>
+    <description>Cough up rot stink directed at a victim.</description>
+    <cooldownTicksRange>2400</cooldownTicksRange>
+    <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <verbProperties>
+      <soundCast>SV_Sound_TanglerBreath</soundCast>
+      <label>toxic breath</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupEffecter>SV_ToxVent_Warmup</warmupEffecter>
+      <warmupTime>2</warmupTime>
+      <range>11.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityReleaseGas">
+        <gasType>RotStink</gasType>
+        <cellsToFill>12</cellsToFill>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

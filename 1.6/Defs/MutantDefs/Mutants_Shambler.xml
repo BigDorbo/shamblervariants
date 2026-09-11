@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <MutantDef Name="SV_MutantShamblerBase" ParentName="BaseMutantEntity" Abstract="True">
+    <label>shambler</label>
+    <hediff>Shambler</hediff>
+    <thinkTree>Shambler</thinkTree>
+    <thinkTreeConstant>ShamblerConstant</thinkTreeConstant>
+    <hideLabel>true</hideLabel>
+    <useCorpseGraphics>true</useCorpseGraphics>
+    <isConsideredCorpse>true</isConsideredCorpse>
+    <bloodDef>Filth_DarkBlood</bloodDef>
+    <bloodSmearDef>Filth_DarkBloodSmear</bloodSmearDef>
+    <entitledToMedicalCare>false</entitledToMedicalCare>
+    <removeAllInjuries>true</removeAllInjuries>
+    <restoreLegs>true</restoreLegs>
+    <defaultFaction>Entities</defaultFaction>
+    <standingAnimation>ShamblerSway</standingAnimation>
+    <canOpenDoors>false</canOpenDoors>
+    <makesFootprints>false</makesFootprints>
+    <tameable>false</tameable>
+    <clearMutantStatusOnDeath>true</clearMutantStatusOnDeath>
+    <canTravelInCaravan>false</canTravelInCaravan>
+    <canAttackWhileCrawling>true</canAttackWhileCrawling>
+    <respectsAllowedArea>false</respectsAllowedArea>
+    <disableFlying>true</disableFlying>
+    <canGainXP>false</canGainXP>
+    <canBeDrafted>false</canBeDrafted>
+    <disableHostilityResponse>true</disableHostilityResponse>
+    <deathOnDownedChance>0.25</deathOnDownedChance>
+    <woundColor>(0.3, 0.3, 0.0, 1.0)</woundColor>
+    <anomalyKnowledgeOffset>0</anomalyKnowledgeOffset>
+    <knowledgeCategory>Basic</knowledgeCategory>
+    <soundAttackChance>0.25</soundAttackChance>
+    <soundCall>Pawn_Shambler_Call</soundCall>
+    <soundAttack>Pawn_Shambler_Attack</soundAttack>
+    <soundWounded>Pawn_Shambler_Wounded</soundWounded>
+    <soundDeath>Pawn_Shambler_Killed</soundDeath>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Overlay">
+        <debugLabel>Shambler wounds</debugLabel>
+        <workerClass>PawnRenderNodeWorker_OverlayShambler</workerClass>
+        <overlayLayer>Body</overlayLayer>
+        <baseLayer>20</baseLayer>
+        <pawnType>HumanlikeOnly</pawnType>
+      </li>
+      <li>
+        <debugLabel>Shambler wounds</debugLabel>
+        <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+        <workerClass>PawnRenderNodeWorker_OverlayShambler</workerClass>
+        <overlayLayer>Body</overlayLayer>
+        <baseLayer>20</baseLayer>
+        <pawnType>NonHumanlikeOnly</pawnType>
+      </li>
+    </renderNodeProperties>
+
+    <tools>
+      <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1</chanceFactor>
+        <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+        <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+      </li>
+      <li>
+        <label>left hand</label>
+        <labelNoLocation>hand</labelNoLocation>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>7.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <chanceFactor>1.5</chanceFactor>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>right hand</label>
+        <labelNoLocation>hand</labelNoLocation>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>7.0</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <chanceFactor>1.5</chanceFactor>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+    </tools>
+  
+    <modExtensions>
+      <li Class="ShamblerVariants.SVShamblerMutant" />
+    </modExtensions>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantBurrower</defName>
+    <label>burrower</label>
+    <description>A shambler that digs down in the ground and ambushes its prey.</description>
+    <namePrefix>burrower </namePrefix>
+    <codexEntry>SV_Burrower</codexEntry>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantCantor</defName>
+    <label>cantor</label>
+    <description>A shambler with glowing eyes and a commanding presence. It heals its own kind and lets out a vile scream that causes nearby foes to flee.</description>
+    <namePrefix>cantor </namePrefix>
+    <codexEntry>SV_Cantor</codexEntry>
+    <standingAnimation>SV_CantorSway</standingAnimation>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Male/GrayEyes_Male</texPath>
+        <texPathFemale>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Female/GrayEyes_Female</texPathFemale>
+        <color>(1.0, 0.82, 0.25)</color>
+        <parentTagDef>Head</parentTagDef>
+        <anchorTag>RightEye</anchorTag>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.2</drawSize>
+        <side>Right</side>
+        <drawData>
+          <defaultData>
+            <layer>54</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Male/GrayEyes_Male</texPath>
+        <texPathFemale>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Female/GrayEyes_Female</texPathFemale>
+        <color>(1.0, 0.82, 0.25)</color>
+        <parentTagDef>Head</parentTagDef>
+        <anchorTag>LeftEye</anchorTag>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.2</drawSize>
+        <side>Left</side>
+        <drawData>
+          <defaultData>
+            <layer>54</layer>
+            <offset>(0, 0, -0.25)</offset>
+            <flip>true</flip>
+          </defaultData>
+          <dataWest>
+            <flip>false</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <debugLabel>aura outer</debugLabel>
+        <texPath>Things/Mote/BandNode/YellowGlow</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>MoteGlow</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
+        <color>(0.79, 0.58, 0.16, 0.30)</color>
+        <drawSize>2.9</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>-12</layer>
+            <offset>(0, 0, -0.1)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <debugLabel>aura mid</debugLabel>
+        <texPath>Things/Mote/BandNode/YellowGlow</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>MoteGlow</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
+        <color>(0.95, 0.78, 0.29, 0.38)</color>
+        <drawSize>1.9</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>-11</layer>
+            <offset>(0, 0, -0.1)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Biotech">
+        <debugLabel>aura core</debugLabel>
+        <texPath>Things/Mote/BandNode/YellowGlow</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>MoteGlow</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
+        <color>(1.0, 0.93, 0.55, 0.45)</color>
+        <drawSize>1.1</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>-10</layer>
+            <offset>(0, 0, -0.1)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantBurster</defName>
+    <label>burster</label>
+    <description>Similar to a boomalope, this shambler spreads chemfuel around itself before violently exploding if in close proximity to an enemy.</description>
+    <namePrefix>burster </namePrefix>
+    <codexEntry>SV_Burster</codexEntry>
+    <modExtensions>
+      <li Class="ShamblerVariants.SVMutantSkin">
+        <color>(0.902, 0.867, 0.565)</color>
+      </li>
+    </modExtensions>
+    <renderNodeProperties>
+      <li>
+        <debugLabel>fuel sacs</debugLabel>
+        <texPath>Things/Pawn/Shambler/SV_Burster/BursterSacs</texPath>
+        <bodyTypeGraphicPaths>
+          <Male>Things/Pawn/Shambler/SV_Burster/BursterSacs_Male</Male>
+          <Female>Things/Pawn/Shambler/SV_Burster/BursterSacs_Female</Female>
+          <Thin>Things/Pawn/Shambler/SV_Burster/BursterSacs_Thin</Thin>
+          <Fat>Things/Pawn/Shambler/SV_Burster/BursterSacs_Fat</Fat>
+        </bodyTypeGraphicPaths>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData>
+            <layer>-1</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>66</layer>
+          </dataNorth>
+          <dataEast>
+            <layer>66</layer>
+          </dataEast>
+          <dataWest>
+            <layer>66</layer>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantThrasher</defName>
+    <label>thrasher</label>
+    <description>A shambler that is chemically frenzied, large, and capable of leaps at incredible speed.</description>
+    <namePrefix>thrasher </namePrefix>
+    <codexEntry>SV_Thrasher</codexEntry>
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Male/GrayEyes_Male</texPath>
+        <texPathFemale>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Female/GrayEyes_Female</texPathFemale>
+        <color>(1.0, 0.16, 0.12)</color>
+        <parentTagDef>Head</parentTagDef>
+        <anchorTag>RightEye</anchorTag>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.2</drawSize>
+        <side>Right</side>
+        <drawData>
+          <defaultData>
+            <layer>54</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Male/GrayEyes_Male</texPath>
+        <texPathFemale>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Female/GrayEyes_Female</texPathFemale>
+        <color>(1.0, 0.16, 0.12)</color>
+        <parentTagDef>Head</parentTagDef>
+        <anchorTag>LeftEye</anchorTag>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>0.2</drawSize>
+        <side>Left</side>
+        <drawData>
+          <defaultData>
+            <layer>54</layer>
+            <offset>(0, 0, -0.25)</offset>
+            <flip>true</flip>
+          </defaultData>
+          <dataWest>
+            <flip>false</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </MutantDef>
+
+  
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantLatcher</defName>
+    <label>latcher</label>
+    <description>A shambler variant with the mouth of a devourer and a taste for blood.</description>
+    <namePrefix>latcher </namePrefix>
+    <codexEntry>SV_Latcher</codexEntry>
+    <modExtensions>
+      <li Class="ShamblerVariants.SVMutantSkin">
+        <color>(0.898, 0.545, 0.537)</color>
+      </li>
+    </modExtensions>
+    <soundCall>Pawn_Fleshbeast_Toughspike_Call</soundCall>
+    <soundWounded>Pawn_Fleshbeast_Toughspike_Wounded</soundWounded>
+    <soundDeath>Pawn_Fleshbeast_Toughspike_Death</soundDeath>
+    <renderNodeProperties>
+    <li Class="ShamblerVariants.PawnRenderNodeProperties_SVMaw">
+      <debugLabel>maw open</debugLabel>
+      <texPath>Things/Pawn/Shambler/SV_Latcher/LatcherMawOpen</texPath>
+      <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+      <parentTagDef>Head</parentTagDef>
+      <narrowCrownHorizontalOffset>0.02</narrowCrownHorizontalOffset>
+      <workerClass>ShamblerVariants.PawnRenderNodeWorker_SVMaw</workerClass>
+      <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      <visibleFacing>
+      <li>South</li>
+      <li>East</li>
+      <li>West</li>
+      </visibleFacing>
+      <closed>false</closed>
+      <drawData>
+      <defaultData>
+        <layer>68</layer>
+      </defaultData>
+      </drawData>
+    </li>
+    <li Class="ShamblerVariants.PawnRenderNodeProperties_SVMaw">
+      <debugLabel>maw closed</debugLabel>
+      <texPath>Things/Pawn/Shambler/SV_Latcher/LatcherMawClosed</texPath>
+      <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+      <parentTagDef>Head</parentTagDef>
+      <narrowCrownHorizontalOffset>0.02</narrowCrownHorizontalOffset>
+      <workerClass>ShamblerVariants.PawnRenderNodeWorker_SVMaw</workerClass>
+      <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      <visibleFacing>
+      <li>South</li>
+      <li>East</li>
+      <li>West</li>
+      </visibleFacing>
+      <closed>true</closed>
+      <drawData>
+      <defaultData>
+        <layer>68</layer>
+      </defaultData>
+      </drawData>
+    </li>
+    </renderNodeProperties>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantGloam</defName>
+    <label>gloam</label>
+    <description>A shambler from the void that exploits pinholes to teleport and copy itself.</description>
+    <namePrefix>gloam </namePrefix>
+    <codexEntry>SV_Gloam</codexEntry>
+    <modExtensions>
+      <li Class="ShamblerVariants.SVMutantSkin">
+        <alpha>0.75</alpha>
+      </li>
+    </modExtensions>
+    <renderNodeProperties>
+      <li>
+        <texPath>Things/Mote/Smoke</texPath>
+        <color>(0, 0, 0, 0.5)</color>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>1.15</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>92</layer>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantTangler</defName>
+    <label>tangler</label>
+    <description>A clever variant that uses fleshmass and pollution. It traps victims in fleshy plants and poisons the air with rot stink.</description>
+    <namePrefix>tangler </namePrefix>
+    <codexEntry>SV_Tangler</codexEntry>
+    <renderNodeProperties>
+    <li MayRequire="Ludeon.RimWorld.Biotech">
+      <debugLabel>blight pustule upper</debugLabel>
+      <texPath>Things/Mote/BandNode/GreenGlow</texPath>
+      <parentTagDef>Body</parentTagDef>
+      <shaderTypeDef>Transparent</shaderTypeDef>
+      <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      <drawSize>0.26</drawSize>
+      <drawData>
+      <defaultData>
+        <layer>21</layer>
+        <offset>(0.10, 0, 0.12)</offset>
+      </defaultData>
+      </drawData>
+    </li>
+    <li MayRequire="Ludeon.RimWorld.Biotech">
+      <debugLabel>blight pustule mid</debugLabel>
+      <texPath>Things/Mote/BandNode/GreenGlow</texPath>
+      <parentTagDef>Body</parentTagDef>
+      <shaderTypeDef>Transparent</shaderTypeDef>
+      <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      <drawSize>0.20</drawSize>
+      <drawData>
+      <defaultData>
+        <layer>21</layer>
+        <offset>(-0.14, 0, -0.02)</offset>
+      </defaultData>
+      </drawData>
+    </li>
+    <li MayRequire="Ludeon.RimWorld.Biotech">
+      <debugLabel>blight pustule lower</debugLabel>
+      <texPath>Things/Mote/BandNode/GreenGlow</texPath>
+      <parentTagDef>Body</parentTagDef>
+      <shaderTypeDef>Transparent</shaderTypeDef>
+      <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      <drawSize>0.16</drawSize>
+      <drawData>
+      <defaultData>
+        <layer>21</layer>
+        <offset>(0.04, 0, -0.16)</offset>
+      </defaultData>
+      </drawData>
+    </li>
+    </renderNodeProperties>
+  </MutantDef>
+
+  <MutantDef ParentName="SV_MutantShamblerBase">
+    <defName>SV_MutantPallbearer</defName>
+    <label>pallbearer</label>
+    <description>A shambler that raises the dead during combat.</description>
+    <namePrefix>pallbearer </namePrefix>
+    <codexEntry>SV_Pallbearer</codexEntry>
+  </MutantDef>
+
+</Defs>

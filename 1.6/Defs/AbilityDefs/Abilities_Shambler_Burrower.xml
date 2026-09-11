@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_BurrowerBurrow</defName>
+    <label>burrow</label>
+    <description>Dig the soil and erupt from the ground beside an enemy.</description>
+    <cooldownTicksRange>700</cooldownTicksRange>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <warmupStartSound>SV_Sound_BurrowerDig</warmupStartSound>
+    <verbProperties>
+      <label>burrow</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>4</warmupTime>
+      <range>30.9</range>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityBurrowJump">
+        <searchRadius>30.9</searchRadius>
+        <minRadius>7.9</minRadius>
+        <breakSound>FleshbeastDigging_End</breakSound>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

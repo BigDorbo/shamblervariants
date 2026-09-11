@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase">
+    <defName>SV_LatcherDrive</defName>
+    <label>latcher</label>
+    <description>A shambler variant with the mouth of a devourer and a taste for blood.</description>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+        <statFactors>
+          <Flammability>3.5</Flammability>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVFuelTrail">
+        <filthDef>Filth_Blood</filthDef>
+        <moveIntervalTicks>45</moveIntervalTicks>
+        <idleIntervalTicks>420</idleIntervalTicks>
+        <onlyWhenEngaged>true</onlyWhenEngaged>
+      </li>
+      
+      <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <casts>
+          <li>
+            <ability>SV_LatcherChomp</ability>
+            <searchRadius>1.9</searchRadius>
+            <targetHostiles>true</targetHostiles>
+          </li>
+        </casts>
+      </li>
+          <li Class="ShamblerVariants.HediffCompProperties_SVExplodeOnDeath">
+        <radius>0</radius>
+        <damAmount>0</damAmount>
+        <damageDef>Flame</damageDef>
+        <fireChance>0</fireChance>
+        <gore>true</gore>
+        <goreFilthCount>12</goreFilthCount>
+        <goreFilthRadius>2.4</goreFilthRadius>
+        <goreFilthDef>Filth_Blood</goreFilthDef>
+        <destroyCorpse>true</destroyCorpse>
+      </li>
+</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="SV_DebuffBase">
+    <defName>SV_LatcherDrained</defName>
+    <label>drained</label>
+    <description>A latcher has sapped this pawn of blood.</description>
+    <defaultLabelColor>(0.85, 0.2, 0.2)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

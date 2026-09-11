@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef>
+    <defName>SV_TanglerKnot</defName>
+    <label>tangler knot</label>
+    <description>A bundle of fleshy runners rooted into a toothy mouth.</description>
+    <thingClass>ShamblerVariants.Thing_SVTanglerKnot</thingClass>
+    <category>Building</category>
+    <tickerType>Rare</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <fillPercent>0.2</fillPercent>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <rotatable>false</rotatable>
+    <destroyable>true</destroyable>
+    <graphicData>
+      <texPath>Things/Pawn/Shambler/SV_Tangler/TanglerKnot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.9</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Flammability>1.6</Flammability>
+    </statBases>
+    <building>
+      <isEdifice>false</isEdifice>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+    </building>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerBurrower</defName>
+    <label>burrower</label>
+    <mutant>SV_MutantBurrower</mutant>
+    <combatPower>55</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <Dirtmole MayRequire="Ludeon.RimWorld.Biotech">1</Dirtmole>
+        <Stoneborn MayRequire="det.stoneborn,Ludeon.RimWorld.Biotech">1</Stoneborn>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_BurrowerDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_BurrowerBurrow</li>
+    </abilities>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerCantor</defName>
+    <label>cantor</label>
+    <mutant>SV_MutantCantor</mutant>
+    <combatPower>70</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <Highmate MayRequire="Ludeon.RimWorld.Biotech">1</Highmate>
+        <Genie MayRequire="Ludeon.RimWorld.Biotech">1</Genie>
+        <BGM_Sovereign MayRequire="BiomesTeam.GeneticsMushkin,Ludeon.RimWorld.Biotech">0.8</BGM_Sovereign>
+        <HBX_Highborn MayRequire="ElSov.Highborn,Ludeon.RimWorld.Biotech">0.5</HBX_Highborn>
+        <DV_Avaloi MayRequire="det.avaloi,Ludeon.RimWorld.Biotech">0.4</DV_Avaloi>
+        <BGM_Tallcap MayRequire="BiomesTeam.GeneticsMushkin,Ludeon.RimWorld.Biotech">0.4</BGM_Tallcap>
+        <RBSF_Satyr MayRequire="tug.Satyr,Ludeon.RimWorld.Biotech">0.4</RBSF_Satyr>
+        <VRE_Fungoid MayRequire="vanillaracesexpanded.fungoid,Ludeon.RimWorld.Biotech">0.5</VRE_Fungoid>
+        <BGM_Mushkin MayRequire="BiomesTeam.GeneticsMushkin,Ludeon.RimWorld.Biotech">0.5</BGM_Mushkin>
+        <BGM_Patchphae MayRequire="BiomesTeam.GeneticsMushkin,Ludeon.RimWorld.Biotech">0.5</BGM_Patchphae>
+              <RS_Charmweaver MayRequire="ReSplice.XOTR.Charmweavers,Ludeon.RimWorld.Biotech">0.5</RS_Charmweaver>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_CantorDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_CantorBloom</li>
+      <li>SV_CantorPresence</li>
+      <li>SV_CantorScream</li>
+    </abilities>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerBurster</defName>
+    <label>burster</label>
+    <mutant>SV_MutantBurster</mutant>
+    <combatPower>45</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <Impid MayRequire="Ludeon.RimWorld.Biotech">1</Impid>
+        <BX_Beliar MayRequire="ElSov.Beliar,Ludeon.RimWorld.Biotech">0.8</BX_Beliar>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_BursterDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_BursterDetonate</li>
+    </abilities>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerThrasher</defName>
+    <label>thrasher</label>
+    <mutant>SV_MutantThrasher</mutant>
+    <combatPower>85</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <Neanderthal MayRequire="Ludeon.RimWorld.Biotech">1</Neanderthal>
+        <Hussar MayRequire="Ludeon.RimWorld.Biotech">1</Hussar>
+        <DV_Brawnum MayRequire="det.brawnum,Ludeon.RimWorld.Biotech">0.4</DV_Brawnum>
+        <GS_Goliann MayRequire="Sov.Goliann,Ludeon.RimWorld.Biotech">0.4</GS_Goliann>
+        <BGM_Ironcap MayRequire="BiomesTeam.GeneticsMushkin,Ludeon.RimWorld.Biotech">0.4</BGM_Ironcap>
+        <VRESaurids_Saurid MayRequire="vanillaracesexpanded.saurid,Ludeon.RimWorld.Biotech">0.4</VRESaurids_Saurid>
+        <RBM_Minotaur MayRequire="tug.Minotaur,Ludeon.RimWorld.Biotech">0.4</RBM_Minotaur>
+        <DV_Keshig MayRequire="det.keshig,Ludeon.RimWorld.Biotech">0.4</DV_Keshig>
+      </xenotypeChances>
+    </xenotypeSet>
+    <abilities>
+      <li>SV_ThrasherFrenzy</li>
+      <li>SV_ThrasherLeap</li>
+    </abilities>
+    <startingHediffs>
+      <li>
+        <def>SV_ThrasherDrive</def>
+      </li>
+    </startingHediffs>
+  </PawnKindDef>
+
+  
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerLatcher</defName>
+    <label>latcher</label>
+    <mutant>SV_MutantLatcher</mutant>
+    <combatPower>65</combatPower>
+    <forcedHair>Bald</forcedHair>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <Sanguophage MayRequire="Ludeon.RimWorld.Biotech">1</Sanguophage>
+              <RS_Charmweaver MayRequire="ReSplice.XOTR.Charmweavers,Ludeon.RimWorld.Biotech">0.5</RS_Charmweaver>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_LatcherDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_LatcherChomp</li>
+    </abilities>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SV_VariantBase" MayRequireAnyOf="Sov.Tenmo,det.venators,det.halffoot,Ludeon.RimWorld.Odyssey,GS_Molong">
+    <defName>SV_ShamblerGloam</defName>
+    <label>gloam</label>
+    <mutant>SV_MutantGloam</mutant>
+    <combatPower>55</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <GS_Geist MayRequire="Sov.Tenmo,Ludeon.RimWorld.Biotech">1</GS_Geist>
+        <DV_Venator MayRequire="det.venators,Ludeon.RimWorld.Biotech">1</DV_Venator>
+        <DV_Halffoot MayRequire="det.halffoot,Ludeon.RimWorld.Biotech">1</DV_Halffoot>
+        <Starjack MayRequire="Ludeon.RimWorld.Odyssey,Ludeon.RimWorld.Biotech">1</Starjack>
+              <GS_Molong MayRequire="GS_Molong,Ludeon.RimWorld.Biotech">1</GS_Molong>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_GloamDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_GloamWalk</li>
+    </abilities>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerTangler</defName>
+    <label>tangler</label>
+    <mutant>SV_MutantTangler</mutant>
+    <combatPower>70</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <VRE_Animakin MayRequire="vanillaracesexpanded.phytokin,Ludeon.RimWorld.Biotech">1</VRE_Animakin>
+        <VRE_Gauranlenkin MayRequire="vanillaracesexpanded.phytokin,Ludeon.RimWorld.Biotech">1</VRE_Gauranlenkin>
+        <VRE_Poluxkin MayRequire="vanillaracesexpanded.phytokin,Ludeon.RimWorld.Biotech">1</VRE_Poluxkin>
+        <Waster MayRequire="Ludeon.RimWorld.Biotech">1</Waster>
+        <DV_Bogleg MayRequire="det.boglegs,Ludeon.RimWorld.Biotech">0.5</DV_Bogleg>
+        <VRE_Insector MayRequire="vanillaracesexpanded.insector,Ludeon.RimWorld.Biotech">0.5</VRE_Insector>
+        <DV_Buzzer MayRequire="det.buzzers,Ludeon.RimWorld.Biotech">0.5</DV_Buzzer>
+        <Yttakin MayRequire="Ludeon.RimWorld.Biotech">0.3</Yttakin>
+        <Neanderthal MayRequire="Ludeon.RimWorld.Biotech">0.3</Neanderthal>
+              <VRE_Wolfman MayRequire="vanillaracesexpanded.lycanthrope,Ludeon.RimWorld.Biotech">0.5</VRE_Wolfman>
+        <RBSF_Faun MayRequire="V.Rooboid.Faun,Ludeon.RimWorld.Biotech">0.6</RBSF_Faun>
+        <VRE_Lycan MayRequire="vanillaracesexpanded.lycanthrope,Ludeon.RimWorld.Biotech">0.5</VRE_Lycan>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_TanglerDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_TanglerSnare</li>
+      <li>SV_TanglerBreath</li>
+    </abilities>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SV_VariantBase">
+    <defName>SV_ShamblerPallbearer</defName>
+    <label>pallbearer</label>
+    <mutant>SV_MutantPallbearer</mutant>
+    <combatPower>50</combatPower>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <Pigskin MayRequire="Ludeon.RimWorld.Biotech">1</Pigskin>
+        <BGM_Necrospore MayRequire="BiomesTeam.GeneticsMushkin,Ludeon.RimWorld.Biotech">0.8</BGM_Necrospore>
+      </xenotypeChances>
+    </xenotypeSet>
+    <startingHediffs>
+      <li>
+        <def>SV_PallbearerDrive</def>
+      </li>
+    </startingHediffs>
+    <abilities>
+      <li>SV_PallbearerCall</li>
+      <li>SV_PallbearerExhume</li>
+    </abilities>
+  </PawnKindDef>
+
+</Defs>

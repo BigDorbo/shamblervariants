@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <EffecterDef>
+    <defName>SV_ToxVent_Warmup</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <fleckDef>Fleck_ToxGasSmall</fleckDef>
+        <chancePerTick>1</chancePerTick>
+        <speed>1.8~3</speed>
+        <scale>0.5~0.9</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <positionLerpFactor>0.65</positionLerpFactor>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.25</positionRadius>
+        <fleckDef>Fleck_ToxGasSmall</fleckDef>
+        <chancePerTick>0.7</chancePerTick>
+        <speed>0.6~1.4</speed>
+        <scale>1~1.6</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>SV_Rupture_Warmup</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.1</positionRadius>
+        <moteDef>Mote_SparkThrownFast</moteDef>
+        <chancePerTick>1</chancePerTick>
+        <speed>3.3~5</speed>
+        <scale>0.1~0.2</scale>
+        <angle>0~360</angle>
+        <positionLerpFactor>0.65</positionLerpFactor>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <positionRadius>0.15</positionRadius>
+        <fleckDef>DistortionPulse</fleckDef>
+        <chancePerTick>1</chancePerTick>
+        <speed>6.5</speed>
+        <scale>0.8~1.2</scale>
+        <angle>0~360</angle>
+        <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+        <spawnLocType>OnSource</spawnLocType>
+      </li>
+    </children>
+  </EffecterDef>
+
+  
+
+  <EffecterDef>
+    <defName>SV_Scream_Blast</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>ExpandingDistortionRingFast</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>0.7</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <absoluteAngle>true</absoluteAngle>
+        <rotation>0~0</rotation>
+      </li>
+    </children>
+  </EffecterDef>
+
+  
+
+  <EffecterDef>
+    <defName>SV_Leap_Warmup</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>DustPuff</fleckDef>
+        <chancePerTick>0.5</chancePerTick>
+        <scale>0.9~1.5</scale>
+        <rotationRate>-60~60</rotationRate>
+        <speed>0.4~1.2</speed>
+      </li>
+    </children>
+  </EffecterDef>
+
+  
+
+  
+
+</Defs>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase">
+    <defName>SV_BursterDrive</defName>
+    <label>burster</label>
+    <description>Similar to a boomalope, this shambler spreads chemfuel around itself before violently exploding if in close proximity to an enemy.</description>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVExplodeOnDeath">
+        <radius>2.4</radius>
+        <damAmount>12</damAmount>
+        <damageDef>Flame</damageDef>
+        <fireChance>0.9</fireChance>
+        <spreadFilth>Filth_Fuel</spreadFilth>
+        <spreadChance>0.55</spreadChance>
+        <detonateWhenBurning>true</detonateWhenBurning>
+        <gore>true</gore>
+        <goreFilthCount>10</goreFilthCount>
+        <goreFilthRadius>2.4</goreFilthRadius>
+        <goreFilthDef>Filth_Blood</goreFilthDef>
+        <destroyCorpse>true</destroyCorpse>
+      </li>
+            <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <checkInterval>30</checkInterval>
+        <casts>
+          <li>
+            <ability>SV_BursterDetonate</ability>
+            <selfCast>true</selfCast>
+            <requireEnemyTarget>true</requireEnemyTarget>
+            <requireHostileNear>true</requireHostileNear>
+            <hostileNearRadius>1.5</hostileNearRadius>
+          </li>
+        </casts>
+      </li>
+      <li Class="ShamblerVariants.HediffCompProperties_SVFuelTrail">
+        <filthDef>Filth_Fuel</filthDef>
+        <moveIntervalTicks>45</moveIntervalTicks>
+        <idleIntervalTicks>420</idleIntervalTicks>
+        <onlyWhenEngaged>true</onlyWhenEngaged>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  
+
+  
+
+  <HediffDef ParentName="SV_EffectBase">
+    <defName>SV_BursterPrimed</defName>
+    <label>detonating</label>
+    <description>In moments this shambler will explode.</description>
+    <isBad>false</isBad>
+    <defaultLabelColor>(1.0, 0.55, 0.2)</defaultLabelColor>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVPrimed">
+        <durationTicks>120</durationTicks>
+        <startSound>SV_Sound_BursterDetonateWarmup</startSound>
+        <effecter>SV_Rupture_Warmup</effecter>
+        <damageDef>Flame</damageDef>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

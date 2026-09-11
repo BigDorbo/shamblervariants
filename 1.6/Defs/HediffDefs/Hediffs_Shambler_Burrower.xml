@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase">
+    <defName>SV_BurrowerDrive</defName>
+    <label>burrower</label>
+    <description>A shambler that digs down in the ground and ambushes its prey.</description>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <checkInterval>30</checkInterval>
+        <casts>
+          <li>
+            <ability>SV_BurrowerBurrow</ability>
+            <searchRadius>30.9</searchRadius>
+            <targetHostiles>true</targetHostiles>
+            <skipToTarget>true</skipToTarget>
+            <arriveRadius>2</arriveRadius>
+          </li>
+        </casts>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

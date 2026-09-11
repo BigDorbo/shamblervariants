@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Burrower</defName>
+    <label>burrower</label>
+    <description>A shambler that digs down in the ground and ambushes its prey.</description>
+    <uiIconPath>UI/CodexEntries/SV_Burrower</uiIconPath>
+    <category>Basic</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>410</orderInCategory>
+  </EntityCodexEntryDef>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Cantor</defName>
+    <label>cantor</label>
+    <description>A shambler with glowing eyes and a commanding presence. It heals its own kind and lets out a vile scream that causes nearby foes to flee.</description>
+    <uiIconPath>UI/CodexEntries/SV_Cantor</uiIconPath>
+    <category>Basic</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>411</orderInCategory>
+  </EntityCodexEntryDef>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Burster</defName>
+    <label>burster</label>
+    <description>Similar to a boomalope, this shambler spreads chemfuel around itself before violently exploding if in close proximity to an enemy.</description>
+    <uiIconPath>UI/CodexEntries/SV_Burster</uiIconPath>
+    <category>Advanced</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>412</orderInCategory>
+  </EntityCodexEntryDef>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Thrasher</defName>
+    <label>thrasher</label>
+    <description>A shambler that is chemically frenzied, large, and capable of leaps at incredible speed.</description>
+    <uiIconPath>UI/CodexEntries/SV_Thrasher</uiIconPath>
+    <category>Advanced</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>413</orderInCategory>
+  </EntityCodexEntryDef>
+
+  
+
+  <EntityCodexEntryDef>
+    <defName>SV_Latcher</defName>
+    <label>latcher</label>
+    <description>A shambler variant with the mouth of a devourer and a taste for blood.</description>
+    <uiIconPath>UI/CodexEntries/SV_Latcher</uiIconPath>
+    <category>Basic</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>415</orderInCategory>
+  </EntityCodexEntryDef>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Gloam</defName>
+    <label>gloam</label>
+    <description>A shambler from the void that exploits pinholes to teleport and copy itself.</description>
+    <uiIconPath>UI/CodexEntries/SV_Gloam</uiIconPath>
+    <category>Advanced</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>416</orderInCategory>
+  </EntityCodexEntryDef>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Tangler</defName>
+    <label>tangler</label>
+    <description>A clever variant that uses fleshmass and pollution. It traps victims in fleshy plants and poisons the air with rot stink.</description>
+    <uiIconPath>UI/CodexEntries/SV_Tangler</uiIconPath>
+    <category>Advanced</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>417</orderInCategory>
+  </EntityCodexEntryDef>
+
+  <EntityCodexEntryDef>
+    <defName>SV_Pallbearer</defName>
+    <label>pallbearer</label>
+    <description>A shambler that raises the dead during combat.</description>
+    <uiIconPath>UI/CodexEntries/SV_Pallbearer</uiIconPath>
+    <category>Basic</category>
+    <provocationIncidents>
+      <li>SmallShamblerSwarm</li>
+      <li>ShamblerSwarm</li>
+      <li>ShamblerAssault</li>
+    </provocationIncidents>
+    <orderInCategory>418</orderInCategory>
+  </EntityCodexEntryDef>
+
+</Defs>

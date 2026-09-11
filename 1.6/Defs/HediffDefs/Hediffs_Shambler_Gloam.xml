@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase" MayRequireAnyOf="Sov.Tenmo,det.venators,det.halffoot,Ludeon.RimWorld.Odyssey,GS_Molong">
+    <defName>SV_GloamDrive</defName>
+    <label>gloam</label>
+    <description>A shambler from the void that exploits pinholes to teleport and copy itself.</description>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <casts>
+          <li>
+            <ability>SV_GloamWalk</ability>
+            <searchRadius>24.9</searchRadius>
+            <targetHostiles>true</targetHostiles>
+            <skipToTarget>true</skipToTarget>
+            <arriveRadius>3</arriveRadius>
+          </li>
+        </casts>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>SV_GloamEcho</defName>
+    <label>gloam echo</label>
+    <description>A half-formed copy folded out of nothing.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>SV_GloamAnchor</defName>
+    <label>gloam anchor</label>
+    <description>Tethered to a half-formed copy of itself.</description>
+    <hediffClass>ShamblerVariants.Hediff_SVGloamAnchor</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

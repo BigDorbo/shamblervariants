@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Biotech</li>
+    </mods>
+    <nomatch Class="PatchOperationReplace">
+      <xpath>/Defs/MutantDef[@Name="SV_MutantShamblerBase"]/useCorpseGraphics</xpath>
+      <value>
+        <useCorpseGraphics>false</useCorpseGraphics>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

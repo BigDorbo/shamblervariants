@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/FactionDef[defName="Entities"]/pawnGroupMakers/li[kindDef="Shamblers"]/options</xpath>
+    <value>
+      <SV_ShamblerBurrower>3</SV_ShamblerBurrower>
+      <SV_ShamblerCantor>2</SV_ShamblerCantor>
+      <SV_ShamblerBurster>3</SV_ShamblerBurster>
+      <SV_ShamblerThrasher>2.5</SV_ShamblerThrasher>
+      <SV_ShamblerLatcher>2</SV_ShamblerLatcher>
+      <SV_ShamblerGloam MayRequireAnyOf="Sov.Tenmo,det.venators,det.halffoot,Ludeon.RimWorld.Odyssey,GS_Molong">2</SV_ShamblerGloam>
+      <SV_ShamblerTangler>2</SV_ShamblerTangler>
+      <SV_ShamblerPallbearer>2</SV_ShamblerPallbearer>
+    </value>
+  </Operation>
+</Patch>

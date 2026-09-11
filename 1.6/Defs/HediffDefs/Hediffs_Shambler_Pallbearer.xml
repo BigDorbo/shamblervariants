@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase">
+    <defName>SV_PallbearerDrive</defName>
+    <label>pallbearer</label>
+    <description>A shambler that raises the dead during combat.</description>
+    <comps>
+      <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <checkInterval>240</checkInterval>
+        <casts>
+          <li>
+            <ability>SV_PallbearerCall</ability>
+            <searchRadius>14.9</searchRadius>
+            <targetCorpses>true</targetCorpses>
+          </li>
+          <li>
+            <ability>SV_PallbearerExhume</ability>
+            <searchRadius>14.9</searchRadius>
+            <targetGraves>true</targetGraves>
+          </li>
+        </casts>
+      </li>
+      <li Class="ShamblerVariants.HediffCompProperties_SVGrowths">
+        <growth>FleshWhip</growth>
+        <countRange>1~2</countRange>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

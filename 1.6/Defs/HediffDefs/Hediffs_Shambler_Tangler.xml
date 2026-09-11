@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef ParentName="SV_DriveBase">
+    <defName>SV_TanglerDrive</defName>
+    <label>tangler</label>
+    <description>A clever variant that uses fleshmass and pollution. It traps victims in fleshy plants and poisons the air with rot stink.</description>
+    <comps>
+            <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
+        <checkInterval>240</checkInterval>
+        <casts>
+          <li>
+            <ability>SV_TanglerBreath</ability>
+            <searchRadius>11.9</searchRadius>
+            <targetHostiles>true</targetHostiles>
+          </li>
+          <li>
+            <ability>SV_TanglerSnare</ability>
+            <searchRadius>24.9</searchRadius>
+            <targetHostiles>true</targetHostiles>
+            <skipIfTargetHas>SV_TanglerSnared</skipIfTargetHas>
+          </li>
+        </casts>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="SV_DebuffBase">
+    <defName>SV_TanglerSnared</defName>
+    <label>snared</label>
+    <description>Fleshy runners halt movement until the knot is destroyed.</description>
+    <renderNodeProperties>
+      <li>
+        <debugLabel>root runners</debugLabel>
+        <texPath>Things/Pawn/Shambler/SV_Tangler/TanglerRunners</texPath>
+        <bodyTypeGraphicPaths>
+          <Male>Things/Pawn/Shambler/SV_Tangler/TanglerRunners_Male</Male>
+          <Female>Things/Pawn/Shambler/SV_Tangler/TanglerRunners_Female</Female>
+          <Thin>Things/Pawn/Shambler/SV_Tangler/TanglerRunners_Thin</Thin>
+          <Fat>Things/Pawn/Shambler/SV_Tangler/TanglerRunners_Fat</Fat>
+        </bodyTypeGraphicPaths>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawSize>1.1</drawSize>
+        <drawData>
+          <defaultData>
+            <layer>-1</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>41</layer>
+          </dataNorth>
+          <dataEast>
+            <layer>41</layer>
+          </dataEast>
+          <dataWest>
+            <layer>41</layer>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <defaultLabelColor>(0.45, 0.75, 0.35)</defaultLabelColor>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>0.05</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2500</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_CantorBloom</defName>
+    <label>pall bloom</label>
+    <description>Fires a fetid cloud of microscopic archites at a distance. Shamblers caught in it are healed.</description>
+    <cooldownTicksRange>900</cooldownTicksRange>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <canUseAoeToGetTargets>true</canUseAoeToGetTargets>
+    <verbProperties>
+      <label>pall bloom</label>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <mouseTargetingText>Choose where to bloom</mouseTargetingText>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetEntities>True</canTargetEntities>
+        <canTargetSubhumans>True</canTargetSubhumans>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityHealShamblers">
+        <radius>6.9</radius>
+        <healAmount>12</healAmount>
+        <maxWoundsPerPawn>3</maxWoundsPerPawn>
+        <targetFleck>HealingCross</targetFleck>
+        <areaFleck>UnnaturalHealing</areaFleck>
+        <areaFleckScale>1.4</areaFleckScale>
+        <castSound>Pawn_Shambler_Call</castSound>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_CantorPresence</defName>
+    <label>commanding presence</label>
+    <description>Shamblers within earshot move faster and strike harder for a while.</description>
+    <cooldownTicksRange>1800</cooldownTicksRange>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <hostile>false</hostile>
+    <groupAbility>true</groupAbility>
+    <verbProperties>
+      <label>commanding presence</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>0.5</warmupTime>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityHealShamblers">
+        <radius>14.9</radius>
+        <healAmount>0</healAmount>
+        <maxWoundsPerPawn>0</maxWoundsPerPawn>
+        <applyHediff>SV_CantorCommand</applyHediff>
+        <hediffDurationTicks>1200</hediffDurationTicks>
+        <areaFleck>UnnaturalHealing</areaFleck>
+        <areaFleckScale>1.4</areaFleckScale>
+        <castSound>Pawn_Shambler_Call</castSound>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="SV_CastBase">
+    <defName>SV_CantorScream</defName>
+    <label>unnerving scream</label>
+    <description>Let out a terrible scream that sends foes reeling for some time.</description>
+    <targetRequired>true</targetRequired>
+    <cooldownTicksRange>2400</cooldownTicksRange>
+    <showCastingProgressBar>true</showCastingProgressBar>
+    <verbProperties>
+      <label>unnerving scream</label>
+      <drawAimPie>false</drawAimPie>
+      <warmupTime>3</warmupTime>
+      <range>8.9</range>
+    </verbProperties>
+    <comps>
+      <li Class="ShamblerVariants.CompProperties_SVAbilityScream">
+        <mentalState>SV_Dazed</mentalState>
+        <applyHediff>SV_CantorReeling</applyHediff>
+        <hediffDurationTicks>600</hediffDurationTicks>
+        <blastEffecter>SV_Scream_Blast</blastEffecter>
+        <screamSound>SV_Sound_CantorScream</screamSound>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>
