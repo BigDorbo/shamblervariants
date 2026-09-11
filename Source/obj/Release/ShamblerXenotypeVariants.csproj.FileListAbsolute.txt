@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\1.6\Assemblies\ShamblerXenotypeVariants.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\Source\obj\Release\ShamblerXenotypeVariants.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\Source\obj\Release\ShamblerXenotypeVariants.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\Source\obj\Release\ShamblerXenotypeVariants.AssemblyInfoInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\Source\obj\Release\ShamblerXenotypeVariants.AssemblyInfo.cs
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\Source\obj\Release\ShamblerXenotypeVariants.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Shambler Variants\Source\obj\Release\ShamblerXenotypeVariants.dll

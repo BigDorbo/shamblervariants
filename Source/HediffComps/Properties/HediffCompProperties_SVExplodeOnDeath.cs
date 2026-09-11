@@ -1,0 +1,28 @@
+using RimWorld;
+using Verse;
+
+namespace ShamblerVariants
+{
+    public class HediffCompProperties_SVExplodeOnDeath : HediffCompProperties
+    {
+        public float radius = 2.4f;
+        public int damAmount = 12;
+        public DamageDef damageDef;
+        public float fireChance = 0.9f;
+        public ThingDef spreadFilth;
+        public float spreadChance;
+        public int spreadCount = 1;
+        public bool gore;
+        public int goreFilthCount;
+        public float goreFilthRadius = 1.9f;
+        public ThingDef goreFilthDef;
+        public bool destroyCorpse;
+        public bool detonateWhenBurning;
+        public int burnCheckInterval = 30;
+
+        public HediffCompProperties_SVExplodeOnDeath()
+        {
+            compClass = typeof(HediffComp_SVExplodeOnDeath);
+        }
+    }
+}
