@@ -17,6 +17,10 @@ namespace ShamblerVariants
                 return;
             }
             MutantDef def = __instance.mutant.Def;
+            if (def == null)
+            {
+                return;
+            }
             bool ours;
             if (!cache.TryGetValue(def, out ours))
             {

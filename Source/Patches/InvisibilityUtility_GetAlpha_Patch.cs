@@ -17,6 +17,10 @@ namespace ShamblerVariants
                 return;
             }
             MutantDef def = pawn.mutant.Def;
+            if (def == null)
+            {
+                return;
+            }
             float alpha;
             if (!cache.TryGetValue(def, out alpha))
             {
