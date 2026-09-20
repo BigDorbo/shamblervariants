@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/MutantDef[@Name="SV_MutantShamblerBase"]/tools</xpath>
+      <value>
+        <tools>
+          <li Class="CombatExtended.ToolCE">
+            <label>teeth</label>
+            <capacities>
+              <li>Bite</li>
+            </capacities>
+            <power>8.2</power>
+            <cooldownTime>2</cooldownTime>
+            <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+            <chanceFactor>1</chanceFactor>
+            <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
+            <armorPenetrationSharp>0.5</armorPenetrationSharp>
+            <armorPenetrationBlunt>1.5</armorPenetrationBlunt>
+          </li>
+          <li Class="CombatExtended.ToolCE">
+            <label>left hand</label>
+            <labelNoLocation>hand</labelNoLocation>
+            <capacities>
+              <li>DemolishScratch</li>
+            </capacities>
+            <power>7.0</power>
+            <cooldownTime>2</cooldownTime>
+            <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+            <chanceFactor>1.5</chanceFactor>
+            <armorPenetrationSharp>1.0</armorPenetrationSharp>
+            <armorPenetrationBlunt>2.0</armorPenetrationBlunt>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+          <li Class="CombatExtended.ToolCE">
+            <label>right hand</label>
+            <labelNoLocation>hand</labelNoLocation>
+            <capacities>
+              <li>DemolishScratch</li>
+            </capacities>
+            <power>7.0</power>
+            <cooldownTime>2</cooldownTime>
+            <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+            <chanceFactor>1.5</chanceFactor>
+            <armorPenetrationSharp>1.0</armorPenetrationSharp>
+            <armorPenetrationBlunt>2.0</armorPenetrationBlunt>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </value>
+    </match>
+  </Operation>
+</Patch>
