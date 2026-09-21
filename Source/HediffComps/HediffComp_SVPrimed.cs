@@ -69,11 +69,7 @@ namespace ShamblerVariants
         {
             EndEffecter();
             p.health.RemoveHediff(parent);
-            DamageDef dam = Props.damageDef != null ? Props.damageDef : DamageDefOf.Flame;
-            if (!p.Dead)
-            {
-                p.Kill(new DamageInfo(dam, 99999f, 999f, -1f, p), null);
-            }
+            SVCast.Kill(p, Props.damageDef);
         }
 
         private void EndEffecter()

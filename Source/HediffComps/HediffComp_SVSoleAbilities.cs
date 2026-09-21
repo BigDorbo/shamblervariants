@@ -20,16 +20,18 @@ namespace ShamblerVariants
             {
                 return;
             }
-            SVMutantSkin skin = p.mutant.Def.GetModExtension<SVMutantSkin>();
+            MutantDef def = p.mutant.Def;
+            if (def == null)
+            {
+                return;
+            }
+            SVMutantSkin skin = def.GetModExtension<SVMutantSkin>();
             if (skin == null || skin.color.a <= 0f)
             {
                 return;
             }
             p.story.skinColorOverride = skin.color;
-            if (p.Drawer != null && p.Drawer.renderer != null)
-            {
-                p.Drawer.renderer.SetAllGraphicsDirty();
-            }
+            p.Drawer.renderer.SetAllGraphicsDirty();
         }
 
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
@@ -54,10 +56,11 @@ namespace ShamblerVariants
                 return;
             }
             List<Ability> held = p.abilities.abilities;
+            List<AbilityDef> keep = p.kindDef.abilities;
             for (int i = held.Count - 1; i >= 0; i--)
             {
                 AbilityDef def = held[i].def;
-                if (p.kindDef.abilities != null && p.kindDef.abilities.Contains(def))
+                if (keep != null && keep.Contains(def))
                 {
                     continue;
                 }

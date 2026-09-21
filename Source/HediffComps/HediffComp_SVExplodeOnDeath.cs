@@ -28,12 +28,8 @@ namespace ShamblerVariants
             {
                 return;
             }
-            DamageDef dam = Props.damageDef != null ? Props.damageDef : DamageDefOf.Flame;
             Detonate();
-            if (!p.Dead)
-            {
-                p.Kill(new DamageInfo(dam, 99999f, 999f, -1f, p), null);
-            }
+            SVCast.Kill(p, Props.damageDef);
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
@@ -60,8 +56,7 @@ namespace ShamblerVariants
                 Gore(p, map, pos);
                 return;
             }
-            DamageDef dam = Props.damageDef != null ? Props.damageDef : DamageDefOf.Flame;
-            GenExplosion.DoExplosion(pos, map, Props.radius, dam, p,
+            GenExplosion.DoExplosion(pos, map, Props.radius, Props.damageDef, p,
                 damAmount: Props.damAmount,
                 postExplosionSpawnThingDef: Props.spreadFilth,
                 postExplosionSpawnChance: Props.spreadChance,

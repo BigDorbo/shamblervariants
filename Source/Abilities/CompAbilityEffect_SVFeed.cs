@@ -19,10 +19,7 @@ namespace ShamblerVariants
                 return;
             }
             wasWarming = warming;
-            if (p.Drawer != null && p.Drawer.renderer != null)
-            {
-                p.Drawer.renderer.SetAllGraphicsDirty();
-            }
+            p.Drawer.renderer.SetAllGraphicsDirty();
         }
 
         public override bool Valid(LocalTargetInfo target, bool throwMessages = false)

@@ -78,6 +78,25 @@ namespace ShamblerVariants
             return p != null && p.Spawned && !p.Dead && !p.Downed;
         }
 
+        public static Verb_CastAbility WarmingUp(Pawn p)
+        {
+            Stance_Warmup stance = p.stances.curStance as Stance_Warmup;
+            if (stance == null)
+            {
+                return null;
+            }
+            Verb_CastAbility verb = stance.verb as Verb_CastAbility;
+            return verb != null && verb.Ability != null ? verb : null;
+        }
+
+        public static void Kill(Pawn p, DamageDef dam)
+        {
+            if (!p.Dead)
+            {
+                p.Kill(new DamageInfo(dam, 99999f, 999f, -1f, p), null);
+            }
+        }
+
         public static bool ResolveCell(Pawn p, LocalTargetInfo target, LocalTargetInfo dest, out IntVec3 cell)
         {
             cell = dest.IsValid ? dest.Cell : target.Cell;

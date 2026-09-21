@@ -53,21 +53,12 @@ namespace ShamblerVariants
 
         private static Verb OurWarmup(Pawn p)
         {
-            Stance_Warmup stance = p.stances.curStance as Stance_Warmup;
-            if (stance == null || stance.verb == null)
+            Verb_CastAbility verb = SVCast.WarmingUp(p);
+            if (verb == null || !verb.Ability.def.showCastingProgressBar || p.IsColonistPlayerControlled)
             {
                 return null;
             }
-            Verb_CastAbility verb = stance.verb as Verb_CastAbility;
-            if (verb == null || verb.Ability == null || verb.Ability.def == null)
-            {
-                return null;
-            }
-            if (!verb.Ability.def.showCastingProgressBar)
-            {
-                return null;
-            }
-            return p.IsColonistPlayerControlled ? null : stance.verb;
+            return verb;
         }
 
         public override void MapComponentTick()

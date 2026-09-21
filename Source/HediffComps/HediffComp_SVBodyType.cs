@@ -15,10 +15,7 @@ namespace ShamblerVariants
                 return;
             }
             p.story.bodyType = Props.bodyType;
-            if (p.Drawer != null && p.Drawer.renderer != null)
-            {
-                p.Drawer.renderer.SetAllGraphicsDirty();
-            }
+            p.Drawer.renderer.SetAllGraphicsDirty();
         }
     }
 }

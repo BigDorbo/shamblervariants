@@ -35,10 +35,6 @@ namespace ShamblerVariants
 
         private static bool TryCast(Pawn p, SVAbilityCast cast)
         {
-            if (cast.ability == null)
-            {
-                return false;
-            }
             Ability ab = p.abilities.GetAbility(cast.ability, false);
             if (ab == null)
             {
