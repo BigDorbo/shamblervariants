@@ -50,19 +50,7 @@ namespace ShamblerVariants
                 }
                 if (Props.applyHediff != null)
                 {
-                    Hediff existing = other.health.hediffSet.GetFirstHediffOfDef(Props.applyHediff, false);
-                    if (existing == null)
-                    {
-                        existing = other.health.AddHediff(Props.applyHediff, null, null, null);
-                    }
-                    if (Props.hediffDurationTicks > 0)
-                    {
-                        HediffComp_Disappears dis = existing.TryGetComp<HediffComp_Disappears>();
-                        if (dis != null && dis.ticksToDisappear < Props.hediffDurationTicks)
-                        {
-                            dis.ticksToDisappear = Props.hediffDurationTicks;
-                        }
-                    }
+                    SVHeal.Mark(other, Props.applyHediff, Props.hediffDurationTicks);
                     touched = true;
                 }
                 if (touched && Props.targetFleck != null)

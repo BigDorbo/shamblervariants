@@ -52,9 +52,9 @@ namespace ShamblerVariants
             {
                 loss.Severity = loss.Severity + Props.bloodLoss;
             }
-            if (Props.markHediff != null && !v.health.hediffSet.HasHediff(Props.markHediff, false))
+            if (Props.markHediff != null)
             {
-                v.health.AddHediff(Props.markHediff, null, null, null);
+                SVHeal.Mark(v, Props.markHediff, 0);
             }
             if (Props.stunTicks > 0 && !v.Downed && v.stances != null && v.stances.stunner != null)
             {

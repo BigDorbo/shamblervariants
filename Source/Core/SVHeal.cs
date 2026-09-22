@@ -19,6 +19,24 @@ namespace ShamblerVariants
             return false;
         }
 
+        public static Hediff Mark(Pawn p, HediffDef def, int durationTicks)
+        {
+            Hediff mark = p.health.hediffSet.GetFirstHediffOfDef(def, false);
+            if (mark == null)
+            {
+                mark = p.health.AddHediff(def, null, null, null);
+            }
+            if (durationTicks > 0)
+            {
+                HediffComp_Disappears dis = mark.TryGetComp<HediffComp_Disappears>();
+                if (dis != null && dis.ticksToDisappear < durationTicks)
+                {
+                    dis.ticksToDisappear = durationTicks;
+                }
+            }
+            return mark;
+        }
+
         public static int HealWounds(Pawn p, float amount, int maxWounds)
         {
             List<Hediff> list = p.health.hediffSet.hediffs;

@@ -48,15 +48,7 @@ namespace ShamblerVariants
             }
             if (Props.applyHediff != null)
             {
-                Hediff mark = other.health.AddHediff(Props.applyHediff, null, null, null);
-                if (Props.hediffDurationTicks > 0)
-                {
-                    HediffComp_Disappears dis = mark.TryGetComp<HediffComp_Disappears>();
-                    if (dis != null)
-                    {
-                        dis.ticksToDisappear = Props.hediffDurationTicks;
-                    }
-                }
+                SVHeal.Mark(other, Props.applyHediff, Props.hediffDurationTicks);
             }
             if (Props.mentalState != null)
             {
