@@ -35,7 +35,6 @@
       <li Class="ShamblerVariants.CompProperties_SVAbilityRaiseCorpse">
         <gravesOnly>true</gravesOnly>
         <exhumeOnly>true</exhumeOnly>
-        <digFleck>DustPuff</digFleck>
         <digFleckScale>2.2</digFleckScale>
       </li>
     </comps>
@@ -55,7 +54,6 @@
     <comps>
       <li Class="ShamblerVariants.CompProperties_SVAbilityRaiseCorpse">
         <corpsesOnly>true</corpsesOnly>
-        <gasType>DeadlifeDust</gasType>
         <cellsToFill>8</cellsToFill>
       </li>
     </comps>
