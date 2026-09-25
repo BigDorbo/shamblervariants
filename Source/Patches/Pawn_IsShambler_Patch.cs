@@ -1,5 +1,4 @@
 using HarmonyLib;
-using RimWorld;
 using Verse;
 
 namespace ShamblerVariants
@@ -9,16 +8,10 @@ namespace ShamblerVariants
     {
         public static void Postfix(Pawn __instance, ref bool __result)
         {
-            if (__result || __instance.mutant == null)
+            if (!__result)
             {
-                return;
+                __result = SVShamblerMutant.OurDef(__instance) != null;
             }
-            MutantDef def = __instance.mutant.Def;
-            if (def == null)
-            {
-                return;
-            }
-            __result = def.GetModExtension<SVShamblerMutant>() != null;
         }
     }
 }

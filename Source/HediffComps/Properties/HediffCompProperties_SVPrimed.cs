@@ -8,7 +8,6 @@ namespace ShamblerVariants
     {
         public int durationTicks = 120;
         public SoundDef startSound;
-        public EffecterDef effecter;
         public DamageDef damageDef;
 
         public HediffCompProperties_SVPrimed()
@@ -21,6 +20,10 @@ namespace ShamblerVariants
             foreach (string error in base.ConfigErrors(parentDef))
             {
                 yield return error;
+            }
+            if (durationTicks <= 0)
+            {
+                yield return "SV primed needs a durationTicks above 0";
             }
             if (damageDef == null)
             {

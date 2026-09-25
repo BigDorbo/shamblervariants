@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Reflection;
-using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -10,7 +9,7 @@ namespace ShamblerVariants
     public static class SVXenotypeInjector
     {
         private const float UnlistedWeight = 0.5f;
-        private static readonly FieldInfo chancesField = AccessTools.Field(typeof(XenotypeSet), "xenotypeChances");
+        private static readonly FieldInfo chancesField = SVReflect.Field(typeof(XenotypeSet), "xenotypeChances");
         private static readonly Dictionary<PawnKindDef, List<XenotypeChance>> listed = new Dictionary<PawnKindDef, List<XenotypeChance>>();
 
         static SVXenotypeInjector()
@@ -28,7 +27,7 @@ namespace ShamblerVariants
             for (int i = 0; i < kinds.Count; i++)
             {
                 PawnKindDef kind = kinds[i];
-                if (kind.mutant == null || kind.mutant.GetModExtension<SVShamblerMutant>() == null)
+                if (!SVShamblerMutant.Marks(kind.mutant))
                 {
                     continue;
                 }

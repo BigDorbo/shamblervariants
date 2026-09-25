@@ -1,42 +1,10 @@
 using System.Collections.Generic;
-using RimWorld;
 using Verse;
 
 namespace ShamblerVariants
 {
     public static class SVHeal
     {
-        public static bool HasInjury(Pawn p)
-        {
-            List<Hediff> list = p.health.hediffSet.hediffs;
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i] is Hediff_Injury)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static Hediff Mark(Pawn p, HediffDef def, int durationTicks)
-        {
-            Hediff mark = p.health.hediffSet.GetFirstHediffOfDef(def, false);
-            if (mark == null)
-            {
-                mark = p.health.AddHediff(def, null, null, null);
-            }
-            if (durationTicks > 0)
-            {
-                HediffComp_Disappears dis = mark.TryGetComp<HediffComp_Disappears>();
-                if (dis != null && dis.ticksToDisappear < durationTicks)
-                {
-                    dis.ticksToDisappear = durationTicks;
-                }
-            }
-            return mark;
-        }
-
         public static int HealWounds(Pawn p, float amount, int maxWounds)
         {
             List<Hediff> list = p.health.hediffSet.hediffs;

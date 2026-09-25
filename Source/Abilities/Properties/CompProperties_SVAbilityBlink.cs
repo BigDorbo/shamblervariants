@@ -30,7 +30,7 @@ namespace ShamblerVariants
             {
                 yield return "SV blink with cloneOnArrive needs an echoHediff and an anchorHediff";
             }
-            else if (cloneOnArrive && anchorHediff.hediffClass != typeof(Hediff_SVGloamAnchor))
+            else if (cloneOnArrive && !typeof(Hediff_SVGloamAnchor).IsAssignableFrom(anchorHediff.hediffClass))
             {
                 yield return "SV blink anchorHediff must use hediffClass Hediff_SVGloamAnchor";
             }

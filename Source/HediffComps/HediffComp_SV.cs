@@ -8,5 +8,10 @@ namespace ShamblerVariants
         {
             get { return (T)props; }
         }
+
+        protected static bool Ours(Pawn p)
+        {
+            return p.Spawned && SVShamblerMutant.OurDef(p) != null;
+        }
     }
 }

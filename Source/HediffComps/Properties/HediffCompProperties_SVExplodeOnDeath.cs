@@ -32,9 +32,21 @@ namespace ShamblerVariants
             {
                 yield return error;
             }
-            if (damageDef == null)
+            if (damageDef == null && (radius > 0f || detonateWhenBurning))
             {
                 yield return "SV explode on death needs a damageDef";
+            }
+            if (detonateWhenBurning && burnCheckInterval <= 0)
+            {
+                yield return "SV explode on death needs a burnCheckInterval above 0";
+            }
+            if (spreadChance > 0f && spreadFilth == null)
+            {
+                yield return "SV explode on death spreadChance needs a spreadFilth";
+            }
+            if (gore && goreFilthCount > 0 && goreFilthDef == null)
+            {
+                yield return "SV explode on death goreFilthCount needs a goreFilthDef";
             }
         }
     }

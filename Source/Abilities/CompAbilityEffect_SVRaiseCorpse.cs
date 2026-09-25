@@ -5,19 +5,16 @@ namespace ShamblerVariants
 {
     public class CompAbilityEffect_SVRaiseCorpse : CompAbilityEffect_SVGated<CompProperties_SVAbilityRaiseCorpse>
     {
-
-        public Corpse RaisableCorpse(LocalTargetInfo target)
+        private Corpse RaisableCorpse(LocalTargetInfo target)
         {
+            if (!Props.exhumeOnly && parent.pawn.Faction == null)
+            {
+                return null;
+            }
             Thing thing = target.Thing;
-            if (Props.gravesOnly && !(thing is Building_Casket))
-            {
-                return null;
-            }
-            if (Props.corpsesOnly && !(thing is Corpse))
-            {
-                return null;
-            }
-            if (thing == null || thing.Destroyed)
+            if (thing == null || thing.Destroyed
+                || (Props.gravesOnly && !(thing is Building_Casket))
+                || (Props.corpsesOnly && !(thing is Corpse)))
             {
                 return null;
             }
@@ -31,11 +28,7 @@ namespace ShamblerVariants
                 }
                 corpse = casket.ContainedThing as Corpse;
             }
-            if (corpse == null)
-            {
-                return null;
-            }
-            return MutantUtility.CanResurrectAsShambler(corpse, true) ? corpse : null;
+            return corpse != null && MutantUtility.CanResurrectAsShambler(corpse, true) ? corpse : null;
         }
 
         protected override bool ReadyFor(LocalTargetInfo target)
@@ -43,37 +36,27 @@ namespace ShamblerVariants
             return RaisableCorpse(target) != null;
         }
 
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        protected override void Cast(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            base.Apply(target, dest);
             Corpse corpse = RaisableCorpse(target);
-            if (corpse == null)
-            {
-                return;
-            }
             Building_Casket casket = target.Thing as Building_Casket;
-            if (casket != null && casket.HasAnyContents)
+            if (casket != null)
             {
                 IntVec3 at = casket.Position;
                 Map cm = casket.Map;
                 casket.EjectContents();
-                if (cm != null)
-                {
-                    FleckMaker.ThrowDustPuff(at, cm, Props.digFleckScale);
-                    FleckMaker.ThrowDustPuff(at, cm, Props.digFleckScale * 0.7f);
-                }
+                FleckMaker.ThrowDustPuff(at, cm, Props.digFleckScale);
+                FleckMaker.ThrowDustPuff(at, cm, Props.digFleckScale * 0.7f);
             }
             if (Props.exhumeOnly)
             {
                 return;
             }
             Map map = corpse.MapHeld;
-            if (map == null)
-            {
-                return;
-            }
-            GasUtility.AddDeadifeGas(corpse.PositionHeld, map, parent.pawn.Faction,
-                Props.cellsToFill * 255);
+            IntVec3 cell = corpse.PositionHeld;
+            Faction faction = parent.pawn.Faction;
+            GasUtility.AddDeadifeGas(cell, map, faction, Props.cellsToFill * GasGrid.MaxGasPerCell);
+            MapComponent_SVDeadlifeClaims.Add(map, cell, faction, Props.claimRadius);
         }
     }
 }

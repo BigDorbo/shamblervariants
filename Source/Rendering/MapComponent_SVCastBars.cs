@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 
 namespace ShamblerVariants
 {
@@ -35,10 +34,6 @@ namespace ShamblerVariants
 
         private static HediffComp_SVPrimed Primed(Pawn p)
         {
-            if (!p.IsMutant)
-            {
-                return null;
-            }
             List<Hediff> hediffs = p.health.hediffSet.hediffs;
             for (int i = 0; i < hediffs.Count; i++)
             {
@@ -54,7 +49,7 @@ namespace ShamblerVariants
         private static Verb OurWarmup(Pawn p)
         {
             Verb_CastAbility verb = SVCast.WarmingUp(p);
-            if (verb == null || !verb.Ability.def.showCastingProgressBar || p.IsColonistPlayerControlled)
+            if (verb == null || !verb.Ability.def.showCastingProgressBar || p.Faction == Faction.OfPlayer)
             {
                 return null;
             }
@@ -71,7 +66,7 @@ namespace ShamblerVariants
             gone.Clear();
             foreach (Pawn c in registry)
             {
-                if (!c.Spawned || c.Dead || c.Map != map)
+                if (!c.Spawned || c.Map != map)
                 {
                     gone.Add(c);
                     continue;
@@ -116,23 +111,19 @@ namespace ShamblerVariants
             {
                 Pawn p = casters[i].pawn;
                 Verb verb = casters[i].warmup;
-                if (verb != null)
+                if (verb != null && verb.WarmupStance == null)
                 {
-                    Stance_Warmup cur = p.stances != null ? p.stances.curStance as Stance_Warmup : null;
-                    if (cur == null || cur.verb != verb)
-                    {
-                        verb = null;
-                    }
+                    verb = null;
                 }
                 HediffComp_SVPrimed primed = casters[i].primed;
-                if ((verb == null && primed == null) || !p.Spawned || p.Dead || p.Map != map)
+                if ((verb == null && primed == null) || !p.Spawned || p.Map != map)
                 {
                     Drop(p);
                     casters.RemoveAt(i);
                     continue;
                 }
                 Effecter bar;
-                if (!bars.TryGetValue(p, out bar) || bar == null)
+                if (!bars.TryGetValue(p, out bar))
                 {
                     bar = EffecterDefOf.ProgressBar.Spawn();
                     bars[p] = bar;
@@ -155,10 +146,7 @@ namespace ShamblerVariants
             Effecter bar;
             if (bars.TryGetValue(p, out bar))
             {
-                if (bar != null)
-                {
-                    bar.Cleanup();
-                }
+                bar.Cleanup();
                 bars.Remove(p);
             }
         }

@@ -5,23 +5,19 @@ namespace ShamblerVariants
 {
     public class CompAbilityEffect_SVBurrowJump : CompAbilityEffect_SVRelocate<CompProperties_SVAbilityBurrowJump>
     {
-
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        protected override void Relocate(Pawn p, IntVec3 cell, Map map, Pawn prey)
         {
-            base.Apply(target, dest);
-            Pawn p = parent.pawn;
-            if (!Ready())
-            {
-                return;
-            }
-            IntVec3 cell;
-            if (!SVCast.ResolveCell(p, target, dest, out cell))
-            {
-                return;
-            }
-            SVBurrow.BreakGround(p, Props.breakSound);
+            BreakGround(p, map);
             SVCast.Teleport(p, cell, Props.originEffecter, Props.arriveEffecter);
-            SVBurrow.BreakGround(p, Props.breakSound);
+            BreakGround(p, map);
+        }
+
+        private void BreakGround(Pawn p, Map map)
+        {
+            FleckMaker.ThrowDustPuff(p.Position, map, 2.2f);
+            FleckMaker.ThrowDustPuff(p.Position, map, 1.6f);
+            FleckMaker.ThrowDustPuff(p.Position, map, 1f);
+            SVCast.Sound(Props.breakSound, p);
         }
     }
 }

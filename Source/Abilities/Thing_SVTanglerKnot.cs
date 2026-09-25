@@ -30,7 +30,7 @@ namespace ShamblerVariants
 
         private bool EndsValid()
         {
-            if (victim == null || victim.Dead || !victim.Spawned || victim.Map != Map)
+            if (victim == null || !victim.Spawned || victim.Map != Map)
             {
                 return false;
             }

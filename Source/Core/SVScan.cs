@@ -11,20 +11,31 @@ namespace ShamblerVariants
             return other != null && !other.RaceProps.Animal;
         }
 
+        public static bool Victim(Pawn v)
+        {
+            return v != null && v.Spawned && !v.IsMutant;
+        }
 
         public static bool HostileNear(Pawn p, float radius)
         {
             return NearestHostile(p, radius) != null;
         }
 
-        public static Pawn NearestHostile(Pawn p, float radius)
+        public static bool Closer(IntVec3 a, IntVec3 b, ref float bestDistSquared)
+        {
+            float d = (a - b).LengthHorizontalSquared;
+            if (d < bestDistSquared)
+            {
+                bestDistSquared = d;
+                return true;
+            }
+            return false;
+        }
+
+        public static Pawn NearestHostile(Pawn p, float radius, HediffDef skip = null)
         {
             Map map = p.Map;
-            if (map == null)
-            {
-                return null;
-            }
-            if (p.Faction == null)
+            if (map == null || p.Faction == null)
             {
                 return null;
             }
@@ -33,24 +44,18 @@ namespace ShamblerVariants
             foreach (IAttackTarget target in map.attackTargetsCache.TargetsHostileToFaction(p.Faction))
             {
                 Pawn other = target.Thing as Pawn;
-                if (other == null || other == p || other.Dead || other.Downed
-                    || !ValidVariantTarget(other) || !other.HostileTo(p))
+                if (other == null || other == p || other.Downed
+                    || !ValidVariantTarget(other) || !other.HostileTo(p)
+                    || (skip != null && other.health.hediffSet.HasHediff(skip, false)))
                 {
                     continue;
                 }
-                float d = (other.Position - p.Position).LengthHorizontalSquared;
-                if (d < bestDist)
+                if (Closer(other.Position, p.Position, ref bestDist))
                 {
-                    bestDist = d;
                     best = other;
                 }
             }
             return best;
-        }
-
-        public static bool WithinSquared(IntVec3 a, IntVec3 b, float radius)
-        {
-            return (a - b).LengthHorizontalSquared <= radius * radius;
         }
     }
 }

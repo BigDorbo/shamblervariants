@@ -5,26 +5,10 @@ namespace ShamblerVariants
 {
     public class HediffComp_SVGrowths : HediffComp_SV<HediffCompProperties_SVGrowths>
     {
-
         public override void CompPostPostAdd(DamageInfo? dinfo)
         {
             Pawn p = Pawn;
-            BodyPartDef partDef = Props.partDef != null
-                ? Props.partDef
-                : Props.growth.defaultInstallPart;
-            if (partDef == null)
-            {
-                return;
-            }
-            List<BodyPartRecord> parts = new List<BodyPartRecord>();
-            List<BodyPartRecord> all = p.RaceProps.body.AllParts;
-            for (int i = 0; i < all.Count; i++)
-            {
-                if (all[i].def == partDef)
-                {
-                    parts.Add(all[i]);
-                }
-            }
+            List<BodyPartRecord> parts = new List<BodyPartRecord>(p.RaceProps.body.GetPartsWithDef(Props.InstallPart));
             if (parts.Count == 0)
             {
                 return;

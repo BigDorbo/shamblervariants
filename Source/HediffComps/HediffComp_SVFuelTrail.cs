@@ -5,8 +5,9 @@ namespace ShamblerVariants
 {
     public class HediffComp_SVFuelTrail : HediffComp_SV<HediffCompProperties_SVFuelTrail>
     {
-        private bool engaged;
+        public const int EngageMemoryTicks = 2500;
 
+        private bool engaged;
 
         public override void CompExposeData()
         {
@@ -20,37 +21,23 @@ namespace ShamblerVariants
 
         private bool Engaged(Pawn p)
         {
-            if (engaged)
+            if (!engaged)
             {
-                return true;
+                engaged = p.mindState.enemyTarget != null
+                    || (p.mindState.lastEngageTargetTick > 0
+                        && Find.TickManager.TicksGame - p.mindState.lastEngageTargetTick < EngageMemoryTicks);
             }
-            if (p.mindState.enemyTarget != null)
-            {
-                engaged = true;
-                return true;
-            }
-            if (p.mindState.lastEngageTargetTick > 0
-                && Find.TickManager.TicksGame - p.mindState.lastEngageTargetTick < 2500)
-            {
-                engaged = true;
-                return true;
-            }
-            return false;
+            return engaged;
         }
 
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
             Pawn p = Pawn;
-            if (!p.Spawned || p.Dead)
+            if (!Ours(p) || (Props.onlyWhenEngaged && !Engaged(p)))
             {
                 return;
             }
-            if (Props.onlyWhenEngaged && !Engaged(p))
-            {
-                return;
-            }
-            bool moving = p.pather != null && p.pather.MovingNow;
-            int interval = moving ? Props.moveIntervalTicks : Props.idleIntervalTicks;
+            int interval = p.pather.MovingNow ? Props.moveIntervalTicks : Props.idleIntervalTicks;
             if (p.IsHashIntervalTick(interval, delta))
             {
                 FilthMaker.TryMakeFilth(p.Position, p.Map, Props.filthDef, 1, FilthSourceFlags.None, true);

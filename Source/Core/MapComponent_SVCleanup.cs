@@ -13,14 +13,14 @@ namespace ShamblerVariants
 
         public static void QueueDestroy(Thing thing)
         {
-            if (thing == null || thing.Destroyed || thing.Map == null)
+            if (thing == null || thing.Destroyed || thing.MapHeld == null)
             {
                 return;
             }
-            MapComponent_SVCleanup comp = thing.Map.GetComponent<MapComponent_SVCleanup>();
-            if (comp != null && !comp.pending.Contains(thing))
+            List<Thing> pending = thing.MapHeld.GetComponent<MapComponent_SVCleanup>().pending;
+            if (!pending.Contains(thing))
             {
-                comp.pending.Add(thing);
+                pending.Add(thing);
             }
         }
 
@@ -32,10 +32,9 @@ namespace ShamblerVariants
             }
             for (int i = pending.Count - 1; i >= 0; i--)
             {
-                Thing thing = pending[i];
-                if (thing != null && !thing.Destroyed && thing.Spawned)
+                if (!pending[i].Destroyed)
                 {
-                    thing.Destroy(DestroyMode.Vanish);
+                    pending[i].Destroy(DestroyMode.Vanish);
                 }
             }
             pending.Clear();

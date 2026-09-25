@@ -10,6 +10,11 @@ namespace ShamblerVariants
         public BodyPartDef partDef;
         public IntRange countRange = new IntRange(1, 1);
 
+        public BodyPartDef InstallPart
+        {
+            get { return partDef != null ? partDef : growth.defaultInstallPart; }
+        }
+
         public HediffCompProperties_SVGrowths()
         {
             compClass = typeof(HediffComp_SVGrowths);
@@ -24,6 +29,10 @@ namespace ShamblerVariants
             if (growth == null)
             {
                 yield return "SV growths needs a growth hediff";
+            }
+            else if (InstallPart == null)
+            {
+                yield return "SV growths needs a partDef or a growth with a defaultInstallPart";
             }
         }
     }

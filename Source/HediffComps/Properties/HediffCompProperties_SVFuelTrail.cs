@@ -26,6 +26,10 @@ namespace ShamblerVariants
             {
                 yield return "SV fuel trail needs a filthDef";
             }
+            if (moveIntervalTicks <= 0 || idleIntervalTicks <= 0)
+            {
+                yield return "SV fuel trail needs moveIntervalTicks and idleIntervalTicks above 0";
+            }
         }
     }
 }

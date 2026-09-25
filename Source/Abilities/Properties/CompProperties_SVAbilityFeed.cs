@@ -3,9 +3,8 @@ using Verse;
 
 namespace ShamblerVariants
 {
-    public class CompProperties_SVAbilityFeed : CompProperties_AbilityEffect
+    public class CompProperties_SVAbilityFeed : CompProperties_SVAbilityMark
     {
-        public HediffDef markHediff;
         public float bloodLoss = 0.28f;
         public float healAmount = 42f;
         public int maxWounds = 4;

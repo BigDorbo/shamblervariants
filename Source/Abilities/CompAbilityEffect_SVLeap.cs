@@ -1,38 +1,22 @@
 using RimWorld;
 using Verse;
-using Verse.Sound;
+using Verse.AI;
 
 namespace ShamblerVariants
 {
     public class CompAbilityEffect_SVLeap : CompAbilityEffect_SVRelocate<CompProperties_SVAbilityLeap>, ICompAbilityEffectOnJumpCompleted
     {
-
         protected override bool ExtraReady(Pawn p)
         {
             return Props.requiredHediff == null
                 || p.health.hediffSet.HasHediff(Props.requiredHediff, false);
         }
 
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        protected override void Relocate(Pawn p, IntVec3 cell, Map map, Pawn prey)
         {
-            base.Apply(target, dest);
-            Pawn p = parent.pawn;
-            if (!Ready())
-            {
-                return;
-            }
-            IntVec3 cell;
-            if (!SVCast.ResolveCell(p, target, dest, out cell))
-            {
-                return;
-            }
-            Map map = p.Map;
-            if (Props.leapSound != null)
-            {
-                Props.leapSound.PlayOneShot(SoundInfo.InMap(new TargetInfo(p), MaintenanceType.None));
-            }
+            SVCast.Sound(Props.leapSound, p);
             IntVec3 origin = p.Position;
-            Pawn prey = SVScan.NearestHostile(p, Props.searchRadius);
+            p.jobs.EndCurrentJob(JobCondition.Succeeded, false, true);
             PawnFlyer flyer = PawnFlyer.MakeFlyer(Props.flyerDef, p, cell, null, Props.landSound,
                 false, null, parent, prey);
             FleckMaker.ThrowDustPuff(origin.ToVector3Shifted(), map, 2f);
@@ -43,8 +27,7 @@ namespace ShamblerVariants
         {
             Pawn p = parent.pawn;
             Pawn prey = target.Pawn;
-            if (!p.Spawned || p.Dead
-                || prey == null || prey.Dead || !prey.Spawned || prey.Map != p.Map)
+            if (!p.Spawned || prey == null || !prey.Spawned || prey.Map != p.Map)
             {
                 return;
             }

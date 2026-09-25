@@ -9,7 +9,7 @@ namespace ShamblerVariants
     {
         public static void Postfix(Pawn pawn, ref float __result)
         {
-            if (__result < 1f || pawn == null || pawn.mutant == null)
+            if (__result < 1f || pawn.mutant == null)
             {
                 return;
             }

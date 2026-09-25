@@ -7,20 +7,15 @@ namespace ShamblerVariants
 {
     public class HediffComp_SVCasterDrive : HediffComp_SV<HediffCompProperties_SVCasterDrive>
     {
-
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
             Pawn p = Pawn;
-            if (!p.Spawned || p.Dead || p.Downed)
-            {
-                return;
-            }
-            if (!p.IsHashIntervalTick(Props.checkInterval, delta))
+            if (!Ours(p) || p.Downed || !p.IsHashIntervalTick(Props.checkInterval, delta))
             {
                 return;
             }
             MapComponent_SVCastBars.Register(p);
-            if (p.abilities == null || (p.CurJob != null && p.CurJob.ability != null))
+            if (p.CurJob != null && p.CurJob.ability != null)
             {
                 return;
             }
@@ -36,37 +31,30 @@ namespace ShamblerVariants
         private static bool TryCast(Pawn p, SVAbilityCast cast)
         {
             Ability ab = p.abilities.GetAbility(cast.ability, false);
-            if (ab == null)
-            {
-                p.abilities.GainAbility(cast.ability);
-                ab = p.abilities.GetAbility(cast.ability, false);
-            }
-            if (ab == null || !ab.CanCast)
+            if (!ab.CanCast)
             {
                 return false;
             }
             if (cast.targetCorpses || cast.targetGraves)
             {
                 Thing thing = FindDead(p, cast);
-                if (thing == null || !AbilityUsableOn(ab, thing))
+                if (thing == null || !ab.AICanTargetNow(thing))
                 {
                     return false;
                 }
-                Job deadJob = ab.GetJob(thing, thing);
-                return SVCast.Launch(p, deadJob);
+                SVCast.Launch(p, ab.GetJob(thing, thing));
+                return true;
             }
             Pawn target = FindTarget(p, cast);
-            if (target == null || !AbilityUsableOn(ab, target))
+            if (target == null || !ab.AICanTargetNow(target))
             {
                 return false;
             }
             Job job;
             if (cast.skipToTarget)
             {
-                Map map = p.Map;
                 IntVec3 dest;
-                if (map == null || !CellFinder.TryFindRandomCellNear(target.Position, map, cast.arriveRadius,
-                    delegate(IntVec3 c) { return c.Standable(map) && c != p.Position; }, out dest, -1))
+                if (!SVCast.NearStandable(target.Position, p.Map, cast.arriveRadius, IntVec3.Invalid, out dest))
                 {
                     return false;
                 }
@@ -76,33 +64,13 @@ namespace ShamblerVariants
             {
                 job = ab.GetJob(target, target);
             }
-            return SVCast.Launch(p, job);
-        }
-
-        private static bool AbilityUsableOn(Ability ab, LocalTargetInfo target)
-        {
-            List<CompAbilityEffect> comps = ab.EffectComps;
-            if (comps == null)
-            {
-                return true;
-            }
-            for (int i = 0; i < comps.Count; i++)
-            {
-                if (!comps[i].AICanTargetNow(target))
-                {
-                    return false;
-                }
-            }
+            SVCast.Launch(p, job);
             return true;
         }
 
         private static Thing FindDead(Pawn p, SVAbilityCast cast)
         {
             Map map = p.Map;
-            if (map == null)
-            {
-                return null;
-            }
             Thing best = null;
             float bestDist = cast.searchRadius * cast.searchRadius;
             if (cast.targetCorpses)
@@ -111,15 +79,8 @@ namespace ShamblerVariants
                 for (int i = 0; i < corpses.Count; i++)
                 {
                     Corpse corpse = (Corpse)corpses[i];
-                    if (corpse.Destroyed || !corpse.Spawned
-                        || !MutantUtility.CanResurrectAsShambler(corpse, true))
+                    if (MutantUtility.CanResurrectAsShambler(corpse, true) && SVScan.Closer(corpse.Position, p.Position, ref bestDist))
                     {
-                        continue;
-                    }
-                    float d = (corpse.Position - p.Position).LengthHorizontalSquared;
-                    if (d < bestDist)
-                    {
-                        bestDist = d;
                         best = corpse;
                     }
                 }
@@ -130,19 +91,9 @@ namespace ShamblerVariants
                 for (int i = 0; i < graves.Count; i++)
                 {
                     Building_Casket casket = (Building_Casket)graves[i];
-                    if (casket.Destroyed || !casket.HasAnyContents)
+                    if (casket.HasAnyContents && MutantUtility.CanResurrectAsShambler(casket.ContainedThing as Corpse, true)
+                        && SVScan.Closer(casket.Position, p.Position, ref bestDist))
                     {
-                        continue;
-                    }
-                    Corpse held = casket.ContainedThing as Corpse;
-                    if (held == null || !MutantUtility.CanResurrectAsShambler(held, true))
-                    {
-                        continue;
-                    }
-                    float d = (casket.Position - p.Position).LengthHorizontalSquared;
-                    if (d < bestDist)
-                    {
-                        bestDist = d;
                         best = casket;
                     }
                 }
@@ -154,8 +105,7 @@ namespace ShamblerVariants
         {
             if (cast.selfCast)
             {
-                if (cast.requireEnemyTarget
-                    && p.mindState.enemyTarget == null)
+                if (cast.requireEnemyTarget && p.mindState.enemyTarget == null)
                 {
                     return null;
                 }
@@ -176,45 +126,24 @@ namespace ShamblerVariants
                 List<Pawn> kin = p.Map.mapPawns.SpawnedPawnsInFaction(p.Faction);
                 for (int i = 0; i < kin.Count; i++)
                 {
-                    Consider(p, cast, kin[i], ref best, ref bestDist);
+                    Pawn other = kin[i];
+                    if (other.IsShambler && other.health.hediffSet.HasHediff<Hediff_Injury>(false)
+                        && (cast.skipIfTargetHas == null || !other.health.hediffSet.HasHediff(cast.skipIfTargetHas, false))
+                        && SVScan.Closer(other.Position, p.Position, ref bestDist))
+                    {
+                        best = other;
+                    }
                 }
             }
             if (cast.targetHostiles)
             {
-                foreach (IAttackTarget target in p.Map.attackTargetsCache.TargetsHostileToFaction(p.Faction))
+                Pawn hostile = SVScan.NearestHostile(p, cast.searchRadius, cast.skipIfTargetHas);
+                if (hostile != null && SVScan.Closer(hostile.Position, p.Position, ref bestDist))
                 {
-                    Consider(p, cast, target.Thing as Pawn, ref best, ref bestDist);
+                    best = hostile;
                 }
             }
             return best;
-        }
-
-        private static void Consider(Pawn p, SVAbilityCast cast, Pawn other, ref Pawn best, ref float bestDist)
-        {
-            if (other == null || other.Dead)
-            {
-                return;
-            }
-            if (other == p && !cast.targetWoundedShamblers)
-            {
-                return;
-            }
-            bool valid = (cast.targetWoundedShamblers && other.IsShambler && SVCast.SameSide(other, p) && SVHeal.HasInjury(other))
-                || (cast.targetHostiles && !other.Downed && SVScan.ValidVariantTarget(other) && other.HostileTo(p));
-            if (!valid)
-            {
-                return;
-            }
-            if (cast.skipIfTargetHas != null && other.health.hediffSet.HasHediff(cast.skipIfTargetHas, false))
-            {
-                return;
-            }
-            float d = (other.Position - p.Position).LengthHorizontalSquared;
-            if (d <= bestDist)
-            {
-                bestDist = d;
-                best = other;
-            }
         }
     }
 }

@@ -5,90 +5,45 @@ namespace ShamblerVariants
 {
     public class HediffComp_SVExplodeOnDeath : HediffComp_SV<HediffCompProperties_SVExplodeOnDeath>
     {
-        private bool detonated;
-
-
-        public override void CompExposeData()
-        {
-            Scribe_Values.Look<bool>(ref detonated, "SV_detonated", false, false);
-        }
-
         public override void CompPostTickInterval(ref float severityAdjustment, int delta)
         {
-            if (detonated || !Props.detonateWhenBurning)
-            {
-                return;
-            }
             Pawn p = Pawn;
-            if (!p.Spawned || p.Dead)
+            if (!Props.detonateWhenBurning || !p.Spawned
+                || !p.IsHashIntervalTick(Props.burnCheckInterval, delta) || !p.IsBurning())
             {
                 return;
             }
-            if (!p.IsHashIntervalTick(Props.burnCheckInterval, delta) || !p.IsBurning())
-            {
-                return;
-            }
-            Detonate();
             SVCast.Kill(p, Props.damageDef);
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
-            Detonate();
-        }
-
-        private void Detonate()
-        {
-            if (detonated)
-            {
-                return;
-            }
-            detonated = true;
             Pawn p = Pawn;
             Map map = p.MapHeld;
-            IntVec3 pos = p.PositionHeld;
             if (map == null)
             {
                 return;
             }
-            if (Props.radius <= 0f)
+            IntVec3 pos = p.PositionHeld;
+            if (Props.radius > 0f)
             {
-                Gore(p, map, pos);
-                return;
+                GenExplosion.DoExplosion(pos, map, Props.radius, Props.damageDef, p,
+                    damAmount: Props.damAmount,
+                    postExplosionSpawnThingDef: Props.spreadFilth,
+                    postExplosionSpawnChance: Props.spreadChance,
+                    postExplosionSpawnThingCount: Props.spreadCount,
+                    chanceToStartFire: Props.fireChance);
             }
-            GenExplosion.DoExplosion(pos, map, Props.radius, Props.damageDef, p,
-                damAmount: Props.damAmount,
-                postExplosionSpawnThingDef: Props.spreadFilth,
-                postExplosionSpawnChance: Props.spreadChance,
-                postExplosionSpawnThingCount: Props.spreadCount,
-                chanceToStartFire: Props.fireChance);
-            Gore(p, map, pos);
-        }
-
-        private void Gore(Pawn p, Map map, IntVec3 pos)
-        {
             if (!Props.gore)
             {
                 return;
             }
             FleshbeastUtility.MeatSplatter(0, pos, map, FleshbeastUtility.MeatExplosionSize.Large);
-            if (Props.goreFilthDef != null && Props.goreFilthCount > 0)
+            SVCast.Splatter(Props.goreFilthDef, pos, map, Props.goreFilthCount, Props.goreFilthRadius);
+            if (Props.destroyCorpse)
             {
-                int cells = GenRadial.NumCellsInRadius(Props.goreFilthRadius);
-                for (int i = 0; i < Props.goreFilthCount; i++)
-                {
-                    IntVec3 cell = pos + GenRadial.RadialPattern[Rand.Range(0, cells)];
-                    if (cell.InBounds(map))
-                    {
-                        FilthMaker.TryMakeFilth(cell, map, Props.goreFilthDef, 1, FilthSourceFlags.None, true);
-                    }
-                }
+                MapComponent_SVCleanup.QueueDestroy(p.Corpse);
             }
-            if (!Props.destroyCorpse)
-            {
-                return;
-            }
-            MapComponent_SVCleanup.QueueDestroy(p.Corpse);
         }
     }
 }

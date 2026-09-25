@@ -1,73 +1,48 @@
 using RimWorld;
 using Verse;
-using Verse.Sound;
 
 namespace ShamblerVariants
 {
     public class CompAbilityEffect_SVBlink : CompAbilityEffect_SVRelocate<CompProperties_SVAbilityBlink>
     {
-
-        public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+        protected override bool PickCell(Pawn p, LocalTargetInfo target, LocalTargetInfo dest, out IntVec3 cell)
         {
-            base.Apply(target, dest);
-            Pawn p = parent.pawn;
-            if (!p.Spawned || p.Dead)
-            {
-                return;
-            }
-            IntVec3 cell;
             Pawn mark = target.Pawn;
-            if (mark == null || !SVCast.BehindCell(p, mark, 2.9f, out cell))
+            if (mark != null && mark != p && SVCast.BehindCell(p, mark, Props.arriveScanRadius, out cell))
             {
-                if (!SVCast.ResolveCell(p, target, dest, out cell))
-                {
-                    return;
-                }
+                return true;
             }
-            Map map = p.Map;
+            return base.PickCell(p, target, dest, out cell);
+        }
+
+        protected override void Relocate(Pawn p, IntVec3 cell, Map map, Pawn prey)
+        {
             SVCast.Teleport(p, cell, Props.originEffecter, Props.arriveEffecter);
-            if (Props.arriveSound != null)
-            {
-                Props.arriveSound.PlayOneShot(SoundInfo.InMap(new TargetInfo(p), MaintenanceType.None));
-            }
-            Pawn prey = SVScan.NearestHostile(p, Props.arriveScanRadius);
-            if (prey == null)
+            SVCast.Sound(Props.arriveSound, p);
+            Pawn near = SVScan.NearestHostile(p, Props.arriveScanRadius);
+            if (near == null)
             {
                 return;
             }
-            SVCast.Effect(Props.targetEffecter, prey.Position, map);
+            SVCast.Effect(Props.targetEffecter, near.Position, map);
             if (Props.cloneOnArrive && !p.health.hediffSet.HasHediff(Props.echoHediff, false))
             {
-                Hediff_SVGloamAnchor anchor = (Hediff_SVGloamAnchor)p.health.hediffSet.GetFirstHediffOfDef(Props.anchorHediff, false);
-                if (anchor == null)
-                {
-                    anchor = (Hediff_SVGloamAnchor)p.health.AddHediff(Props.anchorHediff, null, null, null);
-                }
+                Hediff_SVGloamAnchor anchor = (Hediff_SVGloamAnchor)p.health.GetOrAddHediff(Props.anchorHediff, null, null, null);
                 if (!anchor.EchoActive)
                 {
                     anchor.echo = SpawnEcho(p, cell, map);
                 }
             }
-            if (Props.stunTicks > 0 && prey.stances != null)
+            if (Props.stunTicks > 0)
             {
-                prey.stances.stunner.StunFor(Props.stunTicks, p, true, true, false);
+                near.stances.stunner.StunFor(Props.stunTicks, p, true, true, false);
             }
         }
 
         private Pawn SpawnEcho(Pawn p, IntVec3 cell, Map map)
         {
-            IntVec3 spot = IntVec3.Invalid;
-            int cells = GenRadial.NumCellsInRadius(1.9f);
-            for (int i = 1; i < cells; i++)
-            {
-                IntVec3 c = cell + GenRadial.RadialPattern[i];
-                if (c.InBounds(map) && c.Standable(map))
-                {
-                    spot = c;
-                    break;
-                }
-            }
-            if (!spot.IsValid)
+            IntVec3 spot;
+            if (!SVCast.NearStandable(cell, map, 1, cell, out spot))
             {
                 return null;
             }
