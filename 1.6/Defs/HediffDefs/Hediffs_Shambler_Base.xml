@@ -2,10 +2,12 @@
 <Defs>
 
   <HediffDef Name="SV_DriveBase" Abstract="True">
-    <comps>
-      <li Class="ShamblerVariants.HediffCompProperties_SVSoleAbilities" />
-    </comps>
     <hediffClass>HediffWithComps</hediffClass>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
     <isBad>false</isBad>
     <everCurableByItem>false</everCurableByItem>
     <initialSeverity>1</initialSeverity>
@@ -15,7 +17,6 @@
 
   <HediffDef Name="SV_DebuffBase" Abstract="True">
     <hediffClass>HediffWithComps</hediffClass>
-    <isBad>true</isBad>
     <everCurableByItem>false</everCurableByItem>
     <initialSeverity>1</initialSeverity>
     <maxSeverity>1</maxSeverity>

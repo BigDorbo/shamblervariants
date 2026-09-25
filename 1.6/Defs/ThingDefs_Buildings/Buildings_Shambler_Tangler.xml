@@ -13,10 +13,8 @@
     <passability>PassThroughOnly</passability>
     <pathCost>14</pathCost>
     <fillPercent>0.2</fillPercent>
-    <useHitPoints>true</useHitPoints>
     <selectable>true</selectable>
     <rotatable>false</rotatable>
-    <destroyable>true</destroyable>
     <graphicData>
       <texPath>Things/Pawn/Shambler/SV_Tangler/TanglerKnot</texPath>
       <graphicClass>Graphic_Single</graphicClass>

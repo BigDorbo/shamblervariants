@@ -3,13 +3,12 @@
 
   <AbilityDef ParentName="SV_CastBase" MayRequireAnyOf="Sov.Tenmo,det.venators,det.halffoot,Ludeon.RimWorld.Odyssey,GS_Molong">
     <defName>SV_GloamWalk</defName>
+    <showCastingProgressBar>false</showCastingProgressBar>
     <label>gloam walk</label>
     <description>Step through nothing and back, with a replica of yourself, ambushing an enemy.</description>
     <cooldownTicksRange>420</cooldownTicksRange>
     <verbProperties>
       <label>gloam walk</label>
-      <drawAimPie>false</drawAimPie>
-      <warmupTime>0</warmupTime>
       <range>24.9</range>
       <targetParams>
         <canTargetSelf>true</canTargetSelf>
@@ -18,8 +17,6 @@
     </verbProperties>
     <comps>
       <li Class="ShamblerVariants.CompProperties_SVAbilityBlink">
-        <arriveScanRadius>2.9</arriveScanRadius>
-        <stunTicks>90</stunTicks>
         <arriveSound>SV_Sound_GloamWalk</arriveSound>
         <originEffecter>Skip_Entry</originEffecter>
         <arriveEffecter>Skip_Exit</arriveEffecter>

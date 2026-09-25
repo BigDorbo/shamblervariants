@@ -6,8 +6,8 @@
     <label>flesh snare</label>
     <description>Fling a flesh runner at a distant target and root it in place.</description>
     <cooldownTicksRange>600</cooldownTicksRange>
-    <showCastingProgressBar>true</showCastingProgressBar>
     <verbProperties>
+      <drawAimPie>true</drawAimPie>
       <label>flesh snare</label>
       <warmupTime>1.2</warmupTime>
       <range>24.9</range>
@@ -22,8 +22,6 @@
       <li Class="ShamblerVariants.CompProperties_SVAbilityTether">
         <tetherDef>SV_TanglerKnot</tetherDef>
         <pinHediff>SV_TanglerSnared</pinHediff>
-        <maxLength>8</maxLength>
-        <knotPlacementRadius>1.9</knotPlacementRadius>
         <targetFleck>DeathRefusalPulse</targetFleck>
         <castSound>SV_Sound_TanglerSnare</castSound>
       </li>
@@ -36,12 +34,10 @@
     <description>Cough up rot stink directed at a victim.</description>
     <cooldownTicksRange>2400</cooldownTicksRange>
     <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
-    <showCastingProgressBar>true</showCastingProgressBar>
     <verbProperties>
       <soundCast>SV_Sound_TanglerBreath</soundCast>
       <label>toxic breath</label>
-      <drawAimPie>false</drawAimPie>
-      <warmupEffecter>SV_ToxVent_Warmup</warmupEffecter>
+      <warmupEffecter>SV_TanglerBreathWarmup</warmupEffecter>
       <warmupTime>2</warmupTime>
       <range>11.9</range>
       <requireLineOfSight>true</requireLineOfSight>

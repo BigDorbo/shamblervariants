@@ -7,23 +7,15 @@
     <label>chomp</label>
     <description>Chomp at a foe and cause significant blood loss.</description>
     <cooldownTicksRange>900</cooldownTicksRange>
-    <showCastingProgressBar>true</showCastingProgressBar>
     <warmupStartSound>SV_Sound_LatcherChompWarmup</warmupStartSound>
     <verbProperties>
       <label>chomp</label>
-      <drawAimPie>false</drawAimPie>
       <warmupTime>2</warmupTime>
       <range>1.9</range>
     </verbProperties>
     <comps>
       <li Class="ShamblerVariants.CompProperties_SVAbilityFeed">
-        <markHediff>SV_LatcherDrained</markHediff>
-        <bloodLoss>0.28</bloodLoss>
-        <healAmount>42</healAmount>
-        <maxWounds>4</maxWounds>
-        <stunTicks>120</stunTicks>
-        <filthCount>8</filthCount>
-        <filthRadius>1.9</filthRadius>
+        <applyHediff>SV_LatcherDrained</applyHediff>
         <filthDef>Filth_Blood</filthDef>
         <biteSound>Pawn_Devourer_Attack</biteSound>
       </li>

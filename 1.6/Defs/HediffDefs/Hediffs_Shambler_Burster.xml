@@ -7,10 +7,7 @@
     <description>Similar to a boomalope, this shambler spreads chemfuel around itself before violently exploding if in close proximity to an enemy.</description>
     <comps>
       <li Class="ShamblerVariants.HediffCompProperties_SVExplodeOnDeath">
-        <radius>2.4</radius>
-        <damAmount>12</damAmount>
         <damageDef>Flame</damageDef>
-        <fireChance>0.9</fireChance>
         <spreadFilth>Filth_Fuel</spreadFilth>
         <spreadChance>0.55</spreadChance>
         <detonateWhenBurning>true</detonateWhenBurning>
@@ -34,16 +31,9 @@
       </li>
       <li Class="ShamblerVariants.HediffCompProperties_SVFuelTrail">
         <filthDef>Filth_Fuel</filthDef>
-        <moveIntervalTicks>45</moveIntervalTicks>
-        <idleIntervalTicks>420</idleIntervalTicks>
         <onlyWhenEngaged>true</onlyWhenEngaged>
       </li>
     </comps>
-    <stages>
-      <li>
-        <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
   </HediffDef>
 
   
@@ -54,14 +44,14 @@
     <defName>SV_BursterPrimed</defName>
     <label>detonating</label>
     <description>In moments this shambler will explode.</description>
-    <isBad>false</isBad>
     <defaultLabelColor>(1.0, 0.55, 0.2)</defaultLabelColor>
     <comps>
       <li Class="ShamblerVariants.HediffCompProperties_SVPrimed">
-        <durationTicks>120</durationTicks>
         <startSound>SV_Sound_BursterDetonateWarmup</startSound>
-        <effecter>SV_Rupture_Warmup</effecter>
         <damageDef>Flame</damageDef>
+      </li>
+      <li Class="HediffCompProperties_Effecter">
+        <stateEffecter>SV_BursterRuptureWarmup</stateEffecter>
       </li>
     </comps>
   </HediffDef>

@@ -5,7 +5,7 @@
     <defName>SV_LatcherDrive</defName>
     <label>latcher</label>
     <description>A shambler variant with the mouth of a devourer and a taste for blood.</description>
-    <stages>
+    <stages Inherit="False">
       <li>
         <becomeVisible>false</becomeVisible>
         <statFactors>
@@ -16,8 +16,6 @@
     <comps>
       <li Class="ShamblerVariants.HediffCompProperties_SVFuelTrail">
         <filthDef>Filth_Blood</filthDef>
-        <moveIntervalTicks>45</moveIntervalTicks>
-        <idleIntervalTicks>420</idleIntervalTicks>
         <onlyWhenEngaged>true</onlyWhenEngaged>
       </li>
       
@@ -33,7 +31,6 @@
           <li Class="ShamblerVariants.HediffCompProperties_SVExplodeOnDeath">
         <radius>0</radius>
         <damAmount>0</damAmount>
-        <damageDef>Flame</damageDef>
         <fireChance>0</fireChance>
         <gore>true</gore>
         <goreFilthCount>12</goreFilthCount>

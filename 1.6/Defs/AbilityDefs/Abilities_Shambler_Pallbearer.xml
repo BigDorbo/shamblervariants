@@ -3,10 +3,8 @@
 
   <AbilityDef Name="SV_PallbearerRiteBase" ParentName="SV_CastBase" Abstract="True">
     <cooldownTicksRange>1800</cooldownTicksRange>
-    <showCastingProgressBar>true</showCastingProgressBar>
     <hostile>false</hostile>
     <verbProperties>
-      <drawAimPie>false</drawAimPie>
       <warmupTime>2</warmupTime>
       <violent>false</violent>
       <range>14.9</range>
@@ -35,7 +33,6 @@
       <li Class="ShamblerVariants.CompProperties_SVAbilityRaiseCorpse">
         <gravesOnly>true</gravesOnly>
         <exhumeOnly>true</exhumeOnly>
-        <digFleckScale>2.2</digFleckScale>
       </li>
     </comps>
   </AbilityDef>

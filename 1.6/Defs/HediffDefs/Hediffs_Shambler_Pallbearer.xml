@@ -7,7 +7,6 @@
     <description>A shambler that raises the dead during combat.</description>
     <comps>
       <li Class="ShamblerVariants.HediffCompProperties_SVCasterDrive">
-        <checkInterval>240</checkInterval>
         <casts>
           <li>
             <ability>SV_PallbearerCall</ability>
@@ -26,11 +25,6 @@
         <countRange>1~2</countRange>
       </li>
     </comps>
-    <stages>
-      <li>
-        <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
   </HediffDef>
 
 </Defs>

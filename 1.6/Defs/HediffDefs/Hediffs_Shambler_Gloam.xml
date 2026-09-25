@@ -13,24 +13,17 @@
             <searchRadius>24.9</searchRadius>
             <targetHostiles>true</targetHostiles>
             <skipToTarget>true</skipToTarget>
-            <arriveRadius>3</arriveRadius>
+            <arriveRadius>2</arriveRadius>
           </li>
         </casts>
       </li>
     </comps>
-    <stages>
-      <li>
-        <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
   </HediffDef>
 
-  <HediffDef>
+  <HediffDef ParentName="SV_EffectBase">
     <defName>SV_GloamEcho</defName>
     <label>gloam echo</label>
     <description>A half-formed copy folded out of nothing.</description>
-    <hediffClass>HediffWithComps</hediffClass>
-    <isBad>false</isBad>
     <stages>
       <li>
         <becomeVisible>false</becomeVisible>
@@ -38,12 +31,12 @@
     </stages>
   </HediffDef>
 
-  <HediffDef>
+  <HediffDef ParentName="SV_EffectBase">
     <defName>SV_GloamAnchor</defName>
     <label>gloam anchor</label>
     <description>Tethered to a half-formed copy of itself.</description>
     <hediffClass>ShamblerVariants.Hediff_SVGloamAnchor</hediffClass>
-    <isBad>false</isBad>
+    <duplicationAllowed>false</duplicationAllowed>
     <stages>
       <li>
         <becomeVisible>false</becomeVisible>

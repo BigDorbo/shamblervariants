@@ -3,6 +3,7 @@
 
   <JobDef Name="SV_CastChannelBase" Abstract="True">
     <driverClass>JobDriver_CastAbility</driverClass>
+    <abilityCasting>true</abilityCasting>
     <casualInterruptible>false</casualInterruptible>
     <checkOverrideOnDamage>Never</checkOverrideOnDamage>
     <collideWithPawns>true</collideWithPawns>

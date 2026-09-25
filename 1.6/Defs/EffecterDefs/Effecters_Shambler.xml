@@ -2,7 +2,7 @@
 <Defs>
 
   <EffecterDef>
-    <defName>SV_ToxVent_Warmup</defName>
+    <defName>SV_TanglerBreathWarmup</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
@@ -31,7 +31,7 @@
   </EffecterDef>
 
   <EffecterDef>
-    <defName>SV_Rupture_Warmup</defName>
+    <defName>SV_BursterRuptureWarmup</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
@@ -61,7 +61,7 @@
   
 
   <EffecterDef>
-    <defName>SV_Scream_Blast</defName>
+    <defName>SV_CantorScreamBlast</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
@@ -78,7 +78,7 @@
   
 
   <EffecterDef>
-    <defName>SV_Leap_Warmup</defName>
+    <defName>SV_ThrasherLeapWarmup</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>

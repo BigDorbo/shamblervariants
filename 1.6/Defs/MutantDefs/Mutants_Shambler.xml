@@ -62,7 +62,6 @@
         <power>8.2</power>
         <cooldownTime>2</cooldownTime>
         <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
-        <chanceFactor>1</chanceFactor>
         <soundMeleeHit>Pawn_Melee_HumanBite_Hit</soundMeleeHit>
         <soundMeleeMiss>Pawn_Melee_HumanBite_Miss</soundMeleeMiss>
       </li>
@@ -204,11 +203,7 @@
     <description>Similar to a boomalope, this shambler spreads chemfuel around itself before violently exploding if in close proximity to an enemy.</description>
     <namePrefix>burster </namePrefix>
     <codexEntry>SV_Burster</codexEntry>
-    <modExtensions>
-      <li Class="ShamblerVariants.SVMutantSkin">
-        <color>(0.902, 0.867, 0.565)</color>
-      </li>
-    </modExtensions>
+    <skinColorOverride>(0.902, 0.867, 0.565)</skinColorOverride>
     <renderNodeProperties>
       <li>
         <debugLabel>fuel sacs</debugLabel>
@@ -293,11 +288,7 @@
     <description>A shambler variant with the mouth of a devourer and a taste for blood.</description>
     <namePrefix>latcher </namePrefix>
     <codexEntry>SV_Latcher</codexEntry>
-    <modExtensions>
-      <li Class="ShamblerVariants.SVMutantSkin">
-        <color>(0.898, 0.545, 0.537)</color>
-      </li>
-    </modExtensions>
+    <skinColorOverride>(0.898, 0.545, 0.537)</skinColorOverride>
     <soundCall>Pawn_Fleshbeast_Toughspike_Call</soundCall>
     <soundWounded>Pawn_Fleshbeast_Toughspike_Wounded</soundWounded>
     <soundDeath>Pawn_Fleshbeast_Toughspike_Death</soundDeath>
@@ -315,7 +306,6 @@
       <li>East</li>
       <li>West</li>
       </visibleFacing>
-      <closed>false</closed>
       <drawData>
       <defaultData>
         <layer>68</layer>

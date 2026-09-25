@@ -6,11 +6,9 @@
     <label>burrow</label>
     <description>Dig the soil and erupt from the ground beside an enemy.</description>
     <cooldownTicksRange>700</cooldownTicksRange>
-    <showCastingProgressBar>true</showCastingProgressBar>
     <warmupStartSound>SV_Sound_BurrowerDig</warmupStartSound>
     <verbProperties>
       <label>burrow</label>
-      <drawAimPie>false</drawAimPie>
       <warmupTime>4</warmupTime>
       <range>30.9</range>
       <targetParams>

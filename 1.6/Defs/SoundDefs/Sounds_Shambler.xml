@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <SoundDef>
-    <defName>SV_Sound_TanglerSnare</defName>
+  <SoundDef Name="SV_SoundBase" Abstract="True">
     <context>MapOnly</context>
-    <maxSimultaneous>3</maxSimultaneous>
+  </SoundDef>
+
+  <SoundDef ParentName="SV_SoundBase">
+    <defName>SV_Sound_TanglerSnare</defName>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -27,10 +29,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_BursterDetonateWarmup</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>3</maxSimultaneous>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -56,10 +56,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_LatcherChompWarmup</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>3</maxSimultaneous>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -79,10 +77,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_PallbearerRite</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>3</maxSimultaneous>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -108,10 +104,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_BurrowerDig</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>3</maxSimultaneous>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -133,10 +127,8 @@
 
   
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_CantorScream</defName>
-    <context>MapOnly</context>
-    <maxSimultaneous>3</maxSimultaneous>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -165,9 +157,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_GloamWalk</defName>
-    <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>
     <subSounds>
       <li>
@@ -184,9 +175,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_ThrasherFrenzy</defName>
-    <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>
     <subSounds>
       <li>
@@ -201,9 +191,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_ThrasherLeap</defName>
-    <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>
     <subSounds>
       <li>
@@ -219,9 +208,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_ThrasherLand</defName>
-    <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>
     <subSounds>
       <li>
@@ -236,9 +224,8 @@
     </subSounds>
   </SoundDef>
 
-  <SoundDef>
+  <SoundDef ParentName="SV_SoundBase">
     <defName>SV_Sound_TanglerBreath</defName>
-    <context>MapOnly</context>
     <maxSimultaneous>2</maxSimultaneous>
     <subSounds>
       <li>

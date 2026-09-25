@@ -4,21 +4,18 @@
   <AbilityDef Name="SV_CastBase" Abstract="True">
     <iconPath>UI/Abilities/SV_Cast</iconPath>
     <aiCanUse>true</aiCanUse>
-    <sendMessageOnCooldownComplete>false</sendMessageOnCooldownComplete>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
     <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+    <showCastingProgressBar>true</showCastingProgressBar>
     <verbProperties>
       <verbClass>Verb_CastAbility</verbClass>
-      <drawAimPie>true</drawAimPie>
+      <drawAimPie>false</drawAimPie>
       <requireLineOfSight>false</requireLineOfSight>
       <targetParams>
-        <canTargetLocations>false</canTargetLocations>
-        <canTargetPawns>true</canTargetPawns>
         <canTargetAnimals>false</canTargetAnimals>
         <canTargetBuildings>false</canTargetBuildings>
         <canTargetHumans>false</canTargetHumans>
         <canTargetMechs>false</canTargetMechs>
-        <canTargetSelf>false</canTargetSelf>
       </targetParams>
     </verbProperties>
   </AbilityDef>

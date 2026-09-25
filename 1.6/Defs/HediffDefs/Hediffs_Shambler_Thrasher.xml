@@ -22,11 +22,6 @@
         </casts>
       </li>
     </comps>
-    <stages>
-      <li>
-        <becomeVisible>false</becomeVisible>
-      </li>
-    </stages>
   </HediffDef>
 
   <HediffDef ParentName="SV_EffectBase">
